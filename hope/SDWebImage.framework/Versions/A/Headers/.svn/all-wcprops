@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers
+END
+SDWebImageCompat.h
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDWebImageCompat.h
+END
+SDImageCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDImageCache.h
+END
+SDWebImageDecoder.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDWebImageDecoder.h
+END
+SDWebImageManagerDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDWebImageManagerDelegate.h
+END
+SDWebImagePrefetcher.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDWebImagePrefetcher.h
+END
+SDWebImageDownloaderDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDWebImageDownloaderDelegate.h
+END
+SDWebImageManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDWebImageManager.h
+END
+SDWebImageDownloader.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDWebImageDownloader.h
+END
+UIButton+WebCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/UIButton+WebCache.h
+END
+SDImageCacheDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/SDImageCacheDelegate.h
+END
+UIImageView+WebCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/AirAd_client/!svn/ver/2619/devbranches/EMMS/XinJieKou/SDWebImage.framework/Versions/A/Headers/UIImageView+WebCache.h
+END

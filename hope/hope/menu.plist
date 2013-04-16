@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<integer>0</integer>
+		<key>name</key>
+		<string>首页</string>
+		<key>path</key>
+		<string>/api/hope/news/category/0</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>1</integer>
+		<key>name</key>
+		<string>用药</string>
+		<key>path</key>
+		<string>/api/hope/news/category/1</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>2</integer>
+		<key>name</key>
+		<string>饮食</string>
+		<key>path</key>
+		<string>/api/hope/news/category/2</string>
+	</dict>
+</array>
+</plist>
