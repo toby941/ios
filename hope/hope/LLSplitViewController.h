@@ -20,8 +20,7 @@ typedef enum
 }LLSplitViewStatu;
 
 @interface LLSplitViewController : UIViewController
-<LLOverlayViewDelegate,
-UINavigationControllerDelegate>
+<LLOverlayViewDelegate,UINavigationControllerDelegate>
 {
     UIViewController *_controllerLeft;
 	UIViewController *_controllerRight;

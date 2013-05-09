@@ -29,16 +29,22 @@
     
     
     self._homeController = [[HomeViewController alloc] init];
-   [self._homeController setDelegate:self];
+//   [self._homeController setDelegate:self];
     self._leftViewController = [[LeftViewController alloc] init];
-    [self._leftViewController setDelegate:self];
+//    [self._leftViewController setDelegate:self];
     
     
       self._viewController = [[LLSplitViewController alloc] initWithLeftController:self._leftViewController rigthController:self._leftViewController homeController:self._homeController];
  
   
-    [self.window addSubview:self._viewController.view];
-    
+    [self.window setRootViewController:self._viewController];
+//    [self.window addSubview:self._viewController.view];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+//    self.window.rootViewController = [SRTViewController new];
+//
     return YES;
     
     

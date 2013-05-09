@@ -101,6 +101,7 @@
 								<string key="NSFrame">{{8, 1}, {73, 44}}</string>
 								<reference key="NSSuperview" ref="597525751"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="215848753"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -119,12 +120,13 @@
 						<string key="NSFrame">{{0, 502}, {320, 46}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="215848753"/>
+						<reference key="NSNextKeyView" ref="581128167"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
-							<bytes key="NSRGB">MC45MjU0OTAyNjAxIDAuOTI5NDExODI4NSAwLjkyNTQ5MDI2MDEAA</bytes>
+							<bytes key="NSRGB">MC44OTgwMzkyODE0IDAuOTA1ODgyNDE4MiAwLjg5ODAzOTI4MTQAA</bytes>
 						</object>
+						<int key="IBUIContentMode">6</int>
 						<object class="IBUIScreenMetrics" key="IBUISimulatedDestinationMetrics" id="896072494">
 							<string key="IBUISimulatedSizeMetricsClass">IBUIScreenMetrics</string>
 							<object class="NSMutableDictionary" key="IBUINormalizedOrientationToSizeMap">
@@ -186,6 +188,14 @@
 						<reference key="destination" ref="191373211"/>
 					</object>
 					<int key="connectionID">60</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">navView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="597525751"/>
+					</object>
+					<int key="connectionID">64</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -277,7 +287,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">62</int>
+			<int key="maxID">64</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -297,12 +307,17 @@
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="backBtn">UIButton</string>
+						<string key="navView">UIView</string>
 						<string key="webView">UIWebView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="backBtn">
 							<string key="name">backBtn</string>
 							<string key="candidateClassName">UIButton</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="navView">
+							<string key="name">navView</string>
+							<string key="candidateClassName">UIView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="webView">
 							<string key="name">webView</string>

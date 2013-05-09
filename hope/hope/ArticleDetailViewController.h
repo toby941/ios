@@ -9,15 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @class Article;
-@interface ArticleDetailViewController : UIViewController
+@interface ArticleDetailViewController : UIViewController<UIWebViewDelegate>
 
 @property (nonatomic, strong) Article* article;
 
 @property (nonatomic, strong) IBOutlet UIWebView* webView;
 
-
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic,strong) IBOutlet UIButton *backBtn;
+@property (nonatomic,strong) IBOutlet UIView *navView;
 
 - (IBAction)clickBack;
 

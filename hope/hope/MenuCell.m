@@ -30,7 +30,7 @@
     [super layoutSubviews];
     //    [self setFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width - 40, self.bounds.size.height)];
     
-    [self.textLabel setFont:[UIFont boldSystemFontOfSize:12]];
+    [self.textLabel setFont:[UIFont boldSystemFontOfSize:18]];
     [self.textLabel setFrame:CGRectMake(20, 15, 180, 20)];
     [self.textLabel setNumberOfLines:2];
     
@@ -44,20 +44,21 @@
     //    }
     
     if (line == nil) {
-        line = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.size.height + 5, self.bounds.size.width, 6)];
+        line = [[UIImageView alloc] initWithFrame:CGRectMake(self.contentView.bounds.origin.x, 0, self.contentView.bounds.size.width, 2)];
         [line setImage:[UIImage imageNamed:@"divider-page"]];
+//        [line setBackgroundColor:[UIColor redColor]];
         [self.contentView addSubview:line];
     }
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
-    if (highlighted) {
-        UIImage* bgImage = [UIImage imageNamed:@"cellBg_sel"];
-        [self.backgroundImageView setImage:bgImage];
-    }else {
-        UIImage* bgImage = [UIImage imageNamed:@"cellBg"];
-        [self.backgroundImageView setImage:bgImage];
-    }
+//    if (highlighted) {
+//        UIImage* bgImage = [UIImage imageNamed:@"cellBg_sel"];
+//        [self.backgroundImageView setImage:bgImage];
+//    }else {
+//        UIImage* bgImage = [UIImage imageNamed:@"cellBg"];
+//        [self.backgroundImageView setImage:bgImage];
+//    }
 }
 
 - (void)setMenu:(Menu *)menu{

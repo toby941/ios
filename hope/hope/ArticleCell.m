@@ -8,6 +8,7 @@
 
 #import "ArticleCell.h"
 #import "Article.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation ArticleCell
 
@@ -28,26 +29,83 @@
 }
 
 - (void)layoutSubviews{
+   
+    NSInteger titleX=self.bounds.origin.x+10;
+    NSInteger titleY=5;
+    NSInteger titleW=300;
+    NSInteger titleH=50;
+    
+    NSInteger footX=self.bounds.origin.x+25;
+    NSInteger footY=135;
+    NSInteger footW=300;
+    NSInteger footH=13;
+    
+    NSInteger footIconX=self.bounds.origin.x+10;
+    NSInteger footIconY=135;
+    NSInteger footIconW=13;
+    NSInteger footIconH=13;
+    
+    NSInteger imageX=self.frame.origin.x+10;
+    NSInteger imageY=60;
+    NSInteger imageW=100;
+    NSInteger imageH=68;
+    
+    NSInteger lineX=self.bounds.origin.x;
+    NSInteger lineY=148;
+    NSInteger lineW=self.frame.size.width;
+    NSInteger lineH=2;
+    
+    
+    NSInteger summaryX=self.frame.origin.x+120;
+    NSInteger summaryY=60;
+    NSInteger summaryW=self.bounds.size.width-130;
+    NSInteger summaryH=72;
+    
+    if(!self.article.img||[self.article.img length]==0){
+        summaryX=self.frame.origin.x+10;
+        summaryW=300;
+    }
+    
+    
     [super layoutSubviews];
-    //    [self setFrame:CGRectMake(self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width - 40, self.bounds.size.height)];
-    
-    [self.textLabel setFont:[UIFont boldSystemFontOfSize:12]];
-    [self.textLabel setFrame:CGRectMake(20, 15, 180, 20)];
+     [self.textLabel setFont:[UIFont boldSystemFontOfSize:20]];
+    [self.textLabel setFrame:CGRectMake(titleX, titleY, titleW, titleH)];
     [self.textLabel setNumberOfLines:2];
+   // [self.textLabel setAdjustsFontSizeToFitWidth:true];
+    [self.textLabel setTextColor:[UIColor blueColor]];
+     
+    [self.detailTextLabel setFrame:CGRectMake(footX, footY, footW, footH)];
+    [self.detailTextLabel setFont:[UIFont systemFontOfSize:12]];
+    timeIcon=[[UIImageView alloc] initWithFrame:CGRectMake(footIconX, footIconY, footIconW, footIconH)];
+    [timeIcon setImage:[UIImage imageNamed:@"icon-time"]];
+    [self.contentView addSubview:timeIcon];
     
-    [self.detailTextLabel setFrame:CGRectMake(20, 30, 150, 20)];
-    [self.detailTextLabel setFont:[UIFont systemFontOfSize:10]];
-    
-    //    if (arrows == nil) {
-    //        arrows = [[UIImageView alloc] initWithFrame:CGRectMake(200, 38, 7, 12)];
-    //        [arrows setImage:[UIImage imageNamed:@"373232"]];
-    //        [self.contentView addSubview:arrows];
-    //    }
+      //  self.imageView
+        if (arrows == nil&&(self.article.img&&[self.article.img length]>0)) {
+            arrows = [[UIImageView alloc] initWithFrame:CGRectMake(imageX,  imageY, imageW, imageH)];
+            NSURL* imageURL = [NSURL URLWithString:self.article.img];
+         
+            [arrows setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"black-bg" ]];
+            [self.contentView addSubview:arrows];
+        }
     
     if (line == nil) {
-        line = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.origin.x, self.bounds.size.height + 5, self.bounds.size.width, 6)];
+        line = [[UIImageView alloc] initWithFrame:CGRectMake(lineX,   lineY, lineW, lineH)];
         [line setImage:[UIImage imageNamed:@"divider-page"]];
+    
         [self.contentView addSubview:line];
+    }
+    
+    
+    if(summaryView==nil){
+        summaryView=  [[UILabel alloc] initWithFrame:CGRectMake(summaryX,  summaryY, summaryW, summaryH)];
+        [summaryView setFont:[UIFont systemFontOfSize:12]];
+        summaryView.backgroundColor=[UIColor clearColor];
+        [summaryView setNumberOfLines:5];
+        [summaryView setAdjustsFontSizeToFitWidth:true];
+        
+        summaryView.text=_article.summary;
+        [self.contentView addSubview:summaryView];
     }
 }
 

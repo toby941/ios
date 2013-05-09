@@ -11,8 +11,7 @@
 #import "NetworkManager.h"
 #import "Article.h" 
 #import "JSONKit.h"
-
-
+#import <SystemConfiguration/SystemConfiguration.h> 
 
 
 
@@ -49,8 +48,9 @@ static DataContext* dataContext = nil;
 #pragma mark -
 
 - (NSString*)urlHost{
- //return @"http://weimp.sinaapp.com";
- return @"http://192.168.1.16:9091";
+   // return @"http://192.168.1.13:9091";
+return @"http://weimp.sinaapp.com";
+ //return @"http://192.168.1.16:9091";
 }
 
 - (NSURL*)urlFor:(URLType)type page:(NSUInteger)page
@@ -66,7 +66,7 @@ static DataContext* dataContext = nil;
     }
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",[self urlHost],urlSuffix];
     NSURL* url = [NSURL URLWithString:urlStr];
-    NSLog(@"Fetch From: %@",urlStr);
+
     return url;
 }
 
@@ -96,7 +96,7 @@ static DataContext* dataContext = nil;
   }
   NSString* urlStr = [NSString stringWithFormat:@"%@%@",[self urlHost],urlSuffix];
   NSURL* url = [NSURL URLWithString:urlStr];
-  NSLog(@"Fetch From: %@",urlStr);
+ 
   return url;
 }
 
@@ -104,8 +104,6 @@ static DataContext* dataContext = nil;
   JSONDecoder* decoder = [JSONDecoder decoder];
   NSDictionary* dict = [decoder objectWithData:data];
   id items = nil;
-  NSLog(@"Fetch Result : %@",dict);
-  
   if ([[dict objectForKey:@"error_msg"] length] > 0) {
     *error = [NSError errorWithDomain:[dict objectForKey:@"error_msg"]
                                  code:[[dict objectForKey:@"error_code"] intValue]
@@ -125,7 +123,7 @@ static DataContext* dataContext = nil;
         NSMutableArray* itemArray = [NSMutableArray arrayWithCapacity:10];
       
       NSArray* itemsArray = [dict objectForKey:@"response"];
-          NSLog(@"response : %d",itemsArray.count);
+        //  NSLog(@"response : %d",itemsArray.count);
         for (int i = 0; i < itemsArray.count; i++) {
             NSDictionary* itemDict = [itemsArray objectAtIndex:i];
             Article *a=[[Article alloc] init];
@@ -167,6 +165,15 @@ static DataContext* dataContext = nil;
          success:(FetchSuccessBlock)success
          failure:(FetchFailBlock)failure
 {
+    
+    if(! self.isConnectionAvailable){
+        UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:@"网络好像有问题呀,请检查网络" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alert.alertViewStyle=UIAlertViewStyleDefault;
+        [alert show];
+    }
+ 
+    
+    
   FetchSuccessBlock successCopy = [success copy];
   FetchFailBlock failureCopy = [failure copy];
   NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -226,5 +233,20 @@ static DataContext* dataContext = nil;
   }
 }
 
-
+- (BOOL) isConnectionAvailable
+{
+    SCNetworkReachabilityFlags flags;
+    BOOL receivedFlags;
+    
+    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(CFAllocatorGetDefault(), [@"baidu.com" UTF8String]);
+    receivedFlags = SCNetworkReachabilityGetFlags(reachability, &flags);
+    CFRelease(reachability);
+    
+    if (!receivedFlags || (flags == 0) )
+    {
+        return FALSE;
+    } else {
+        return TRUE;
+    }
+}
 @end

@@ -1,6 +1,6 @@
 //
 //  LeftViewController.m
-//  hope
+//  右侧导航栏
 //
 //  Created by toby on 13-4-12.
 //  Copyright (c) 2013年 toby. All rights reserved.
@@ -59,13 +59,15 @@
     [self.view addSubview:bgImageView];
     [self initMenu];
     
-    _tblView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];//CGRectMake(0, 0, 320 , 460)
+  //  _tblView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];//CGRectMake(0, 0, 320 , 460)
+    //控制tabview最后一行cell紧贴footer
+      _tblView = [[UITableView alloc] initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.size.height-_menuList.count*50 , self.view.bounds.size.width , self.view.bounds.size.height) style:UITableViewStylePlain];
     _tblView.delegate = self;
     _tblView.dataSource = self;
-    _tblView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//    _tblView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     _tblView.separatorColor = [UIColor clearColor];
     [_tblView setBackgroundColor:[UIColor clearColor]];
-    
+    _tblView.scrollEnabled=NO;
     [self.view addSubview:_tblView];
     [_tblView reloadData];
         
@@ -74,7 +76,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
        
-    static NSString * cellStr = @"cell";
+    NSString * cellStr = [NSString stringWithFormat:@"cell%d", indexPath.row];
     MenuCell * cell = [tableView dequeueReusableCellWithIdentifier:cellStr];
     if (!cell)
     {
@@ -83,10 +85,11 @@
     
     Menu* menu = [self.menuList objectAtIndex:indexPath.row];
     [cell setMenu:menu];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
     [cell.textLabel setText:menu.name];
-
-    NSURL* imageURL = [NSURL URLWithString:menu.imgsrc];
+//    [cell.selectedBackgroundView setBackgroundColor:[UIColor blueColor]];
+    
+//    NSURL* imageURL = [NSURL URLWithString:menu.imgsrc];
   //  [cell.titleImageView setImageWithURL:imageURL];
    // [cell setSelectedBackgroundView:[[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"didCellBg"]]autorelease]];
     return cell;
@@ -94,6 +97,13 @@
     
     
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 50;
+}
+
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -103,7 +113,9 @@
     Menu *menu=[[self menuList] objectAtIndex:indexPath.row];
     NSString* url=menu.path;
     ArticleListController *listController = [[ArticleListController alloc] init];
+ 
     [listController setUrlpath:url];
+    [listController setTitle:menu.name];
     [theApp._viewController showViewController:listController animated:YES];
     [listController release];
     

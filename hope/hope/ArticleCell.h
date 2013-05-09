@@ -13,6 +13,8 @@
 {
 UIImageView     *arrows;
 UIImageView     *line;
+UIImageView     *timeIcon;
+UILabel *summaryView;
 }
 
 @property (nonatomic, strong) Article*      article;

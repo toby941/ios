@@ -41,4 +41,6 @@ typedef void(^FetchFailBlock)(NSError *error);
          failure:(FetchFailBlock)failure
             page:(NSUInteger)page;
 
+- (BOOL) isConnectionAvailable;
+
 @end

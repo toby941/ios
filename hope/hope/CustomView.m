@@ -36,9 +36,6 @@
         openPointCenter = CGPointMake(self.parentView.center.x + OPENCENTERX,
                                       self.parentView.center.y);
         
-        NSLog(@"openPointCenter x:%f, openPointCenter y:%f",
-              openPointCenter.x,
-              openPointCenter.y);
         
         
     }
@@ -53,7 +50,6 @@
     CGPoint translation = [recognizer translationInView:self.parentView];
     
     float x = self.center.x + translation.x;
-    NSLog(@"translation x:%f", translation.x);
     
     if (x < self.parentView.center.x) {
         x = self.parentView.center.x;

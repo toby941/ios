@@ -8,17 +8,25 @@
 
 #import <UIKit/UIKit.h>
 #import "DataContext.h"
+#import "EGORefreshTableHeaderView.h"
 
 @protocol ArticleListControllerDelegate;
-@interface ArticleListController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ArticleListController : UIViewController<EGORefreshTableHeaderDelegate,UITableViewDataSource, UITableViewDelegate>
 {
     UIView *bgView;
     UITableView *tblView;
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL _reloading;
+
 }
-@property (nonatomic, strong) NSString *urlpath;
+@property (nonatomic, copy) NSString *urlpath;
+@property (nonatomic,copy) NSString *title;
 @property (nonatomic, assign)id <ArticleListControllerDelegate> delegate;
 
 @property (nonatomic, strong) NSArray* newsArray;
+
+- (void)reloadTableViewDataSource;
+- (void)doneLoadingTableViewData;
 @end
 
 

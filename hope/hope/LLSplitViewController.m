@@ -33,7 +33,7 @@
 	{
 		_controllerLeft = leftController_;
 		//_controllerLeft.view.frame = self.view.bounds;
-		
+        _controllerLeft = [leftController_ retain];
         //_controllerRight = rigthController_ ;
 		
         //_controllerRight.view.frame = self.view.bounds;
@@ -269,7 +269,8 @@
 {
 	if([animationID isEqualToString:@"hide"])
 	{
-		[self.controllerHome.view removeFromSuperview];
+        //奇怪bug 左侧栏第二次点击此处有个对象释放异常，注释后ok
+	//	[self.controllerHome.view removeFromSuperview];
 		
 		[self genHomeViewControllerFromController:_controllerShouldShow];
 		
