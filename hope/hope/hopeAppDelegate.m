@@ -7,8 +7,8 @@
 //
 
 #import "hopeAppDelegate.h"
-//#import "ViewController.h"
 #import<QuartzCore/QuartzCore.h>
+#import "ListViewController.h"
 
 @implementation hopeAppDelegate
 
@@ -33,8 +33,8 @@
     self._leftViewController = [[LeftViewController alloc] init];
 //    [self._leftViewController setDelegate:self];
     
-    
-      self._viewController = [[LLSplitViewController alloc] initWithLeftController:self._leftViewController rigthController:self._leftViewController homeController:self._homeController];
+    ListViewController *list= [[ListViewController alloc]init];
+      self._viewController = [[LLSplitViewController alloc] initWithLeftController:self._leftViewController rigthController:self._leftViewController homeController:list];
  
   
     [self.window setRootViewController:self._viewController];

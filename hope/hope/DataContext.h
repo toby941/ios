@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Util.h"
 
-enum URLType {
+enum URLType { 
   URLIndex,
   URLNews
 

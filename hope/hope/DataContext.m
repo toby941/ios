@@ -9,7 +9,7 @@
 #import "DataContext.h"
 #import "XHTTPOperation.h"
 #import "NetworkManager.h"
-#import "Article.h" 
+#import "Article.h"  
 #import "JSONKit.h"
 #import <SystemConfiguration/SystemConfiguration.h> 
 

@@ -92,6 +92,12 @@
 		DAB37F62173B8244001C3528 /* TableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB37F60173B8244001C3528 /* TableFooterView.xib */; };
 		DAB37F63173B8E9B001C3528 /* TableFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB37F60173B8244001C3528 /* TableFooterView.xib */; };
 		DAB37F64173B906E001C3528 /* TableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB37F5F173B8244001C3528 /* TableFooterView.m */; };
+		DAB37F68173C95BC001C3528 /* TableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB37F66173C95BB001C3528 /* TableHeaderView.m */; };
+		DAB37F69173C95BC001C3528 /* TableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB37F66173C95BB001C3528 /* TableHeaderView.m */; };
+		DAB37F6A173C95BC001C3528 /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB37F67173C95BC001C3528 /* TableHeaderView.xib */; };
+		DAB37F6B173C95BC001C3528 /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAB37F67173C95BC001C3528 /* TableHeaderView.xib */; };
+		DAB37F6E173C978D001C3528 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB37F6D173C978C001C3528 /* ListViewController.m */; };
+		DAB37F6F173C978D001C3528 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB37F6D173C978C001C3528 /* ListViewController.m */; };
 		DAE748FF17229F8000234814 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAE748FE17229F8000234814 /* ImageIO.framework */; };
 		DAE749011727E98D00234814 /* divider-page@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE749001727E98D00234814 /* divider-page@2x.png */; };
 		DAE7490417290DD600234814 /* icon-time.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE7490217290DD600234814 /* icon-time.png */; };
@@ -224,6 +230,11 @@
 		DAB37F5E173B8244001C3528 /* TableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableFooterView.h; sourceTree = "<group>"; };
 		DAB37F5F173B8244001C3528 /* TableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableFooterView.m; sourceTree = "<group>"; };
 		DAB37F60173B8244001C3528 /* TableFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableFooterView.xib; sourceTree = "<group>"; };
+		DAB37F65173C95BB001C3528 /* TableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableHeaderView.h; sourceTree = "<group>"; };
+		DAB37F66173C95BB001C3528 /* TableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableHeaderView.m; sourceTree = "<group>"; };
+		DAB37F67173C95BC001C3528 /* TableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeaderView.xib; sourceTree = "<group>"; };
+		DAB37F6C173C978A001C3528 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListViewController.h; path = Controller/ListViewController.h; sourceTree = "<group>"; };
+		DAB37F6D173C978C001C3528 /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListViewController.m; path = Controller/ListViewController.m; sourceTree = "<group>"; };
 		DAE748FE17229F8000234814 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		DAE749001727E98D00234814 /* divider-page@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider-page@2x.png"; sourceTree = "<group>"; };
 		DAE7490217290DD600234814 /* icon-time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-time.png"; sourceTree = "<group>"; };
@@ -362,6 +373,8 @@
 				DA1024161718075F006A616F /* LeftViewController.h */,
 				DA1024171718075F006A616F /* LeftViewController.m */,
 				DA10244E171B9E8D006A616F /* ArticleListController.h */,
+				DAB37F6C173C978A001C3528 /* ListViewController.h */,
+				DAB37F6D173C978C001C3528 /* ListViewController.m */,
 				DA10244F171B9E8E006A616F /* ArticleListController.m */,
 				DA102419171808D7006A616F /* LLSplitViewController.h */,
 				DA10241A171808D7006A616F /* LLSplitViewController.m */,
@@ -523,11 +536,14 @@
 		DAB37F59173B7F00001C3528 /* STableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DAB37F65173C95BB001C3528 /* TableHeaderView.h */,
+				DAB37F66173C95BB001C3528 /* TableHeaderView.m */,
+				DAB37F67173C95BC001C3528 /* TableHeaderView.xib */,
 				DAB37F5E173B8244001C3528 /* TableFooterView.h */,
 				DAB37F5F173B8244001C3528 /* TableFooterView.m */,
+				DAB37F5B173B7F00001C3528 /* STableViewController.m */,
 				DAB37F60173B8244001C3528 /* TableFooterView.xib */,
 				DAB37F5A173B7F00001C3528 /* STableViewController.h */,
-				DAB37F5B173B7F00001C3528 /* STableViewController.m */,
 			);
 			path = STableViewController;
 			sourceTree = "<group>";
@@ -655,6 +671,7 @@
 				DAE7490C17291AA300234814 /* nav-left.png in Resources */,
 				DAE7490D17291AA300234814 /* nav-left@2x.png in Resources */,
 				DA54E2C7172BD52A0075C17D /* Localizable.strings in Resources */,
+				DAB37F6A173C95BC001C3528 /* TableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,6 +681,7 @@
 			files = (
 				DA1024011717FC70006A616F /* InfoPlist.strings in Resources */,
 				DAB37F62173B8244001C3528 /* TableFooterView.xib in Resources */,
+				DAB37F6B173C95BC001C3528 /* TableHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +735,8 @@
 				DA54E2C4172BBE110075C17D /* EGORefreshTableHeaderView.m in Sources */,
 				DAB37F5C173B7F00001C3528 /* STableViewController.m in Sources */,
 				DAB37F64173B906E001C3528 /* TableFooterView.m in Sources */,
+				DAB37F68173C95BC001C3528 /* TableHeaderView.m in Sources */,
+				DAB37F6E173C978D001C3528 /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +746,8 @@
 			files = (
 				DA1024041717FC70006A616F /* hopeTests.m in Sources */,
 				DAB37F61173B8244001C3528 /* TableFooterView.m in Sources */,
+				DAB37F69173C95BC001C3528 /* TableHeaderView.m in Sources */,
+				DAB37F6F173C978D001C3528 /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
