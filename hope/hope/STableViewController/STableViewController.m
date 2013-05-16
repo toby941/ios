@@ -247,7 +247,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void) scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-      NSLog(@"scrollViewWillBeginDragging");
   if (isRefreshing)
     return;
   isDragging = YES;
@@ -256,7 +255,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView
 {
-      NSLog(@"scrollViewDidScroll");
+     
     
   if (!isRefreshing && isDragging && scrollView.contentOffset.y < 0) {
     [self headerViewDidScroll:scrollView.contentOffset.y < 0 - [self headerRefreshHeight] 
@@ -273,7 +272,7 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     
-    NSLog(@"scrollViewDidEndDragging");
+   
 
   if (isRefreshing)
     return;

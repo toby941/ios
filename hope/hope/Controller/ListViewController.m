@@ -26,7 +26,6 @@
 // Private helper methods
 - (void) addItemsOnTop;
 - (void) addItemsOnBottom;
-- (NSString *) createRandomValue;
 @end
 
 @implementation ListViewController
@@ -50,7 +49,6 @@
 {
     [super viewDidLoad];
     
-    self.title = @"STableViewController Demo";
     [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
       
     
@@ -68,7 +66,7 @@
                                        
                                    }
      ];
-    
+   
     
     //设置阴影
     bgImageView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -83,6 +81,8 @@
     [[bgImageView layer] setBorderColor:[UIColor blackColor].CGColor];
     
     [self.view addSubview:bgImageView];
+    
+    
     [self showNavigationView];
     
     
@@ -100,19 +100,16 @@
         [self.tableView setBackgroundColor:[UIColor clearColor]];
         
         [self.view addSubview:self.tableView];
-        
-        
-        // set the custom view for "pull to refresh". See TableHeaderView.xib.
+        // set the custom view for "pull to refresh". See DemoTableHeaderView.xib.
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TableHeaderView" owner:self options:nil];
         TableHeaderView *headerView = (TableHeaderView *)[nib objectAtIndex:0];
         self.headerView = headerView;
         
-        // set the custom view for "load more". See TableFooterView.xib.
+        
         nib = [[NSBundle mainBundle] loadNibNamed:@"TableFooterView" owner:self options:nil];
         TableFooterView *footerView = (TableFooterView *)[nib objectAtIndex:0];
         self.footerView = footerView;
 
-        
     }
     else
     {
@@ -274,10 +271,19 @@
     if (![super loadMore])
         return NO;
     
-    // Do your async loading here
-    [self performSelector:@selector(addItemsOnBottom) withObject:nil afterDelay:2.0];
-    // See -addItemsOnBottom for more info on what to do after loading more items
-    
+    NSLog(@"load more");
+    NSURL* url=[[DataContext sharedInstance] urlFor:URLIndex];
+    [[DataContext sharedInstance] fetchURL:url
+                                   success:^(id items, BOOL finished){
+                                       NSArray* array = [items objectForKey:@"news"];
+                                       // Do your async loading here
+                                       [self addItemsOnBottom:array];
+                                       
+                                   }
+                                   failure:^(NSError* error){
+                                       
+                                   }
+     ];
     return YES;
 }
 
@@ -296,10 +302,10 @@
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-- (void) addItemsOnBottom
+- (void) addItemsOnBottom:(NSArray*)array
 {
-    for (int i = 0; i < 5; i++)
-        [self.items addObject:[self createRandomValue]];
+    for (int i = 0; i < array.count; i++)
+        [self.items addObject:[array objectAtIndex:i]];
     
     [self.tableView reloadData];
     
@@ -310,7 +316,7 @@
     
     // Inform STableViewController that we have finished loading more items
     [self loadMoreCompleted];
-}
+    }
 
 
 
@@ -350,4 +356,25 @@
     return cell;
 
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+    Article* article = [self.items objectAtIndex:indexPath.row];
+    ArticleDetailViewController *articleDetailsViewCrl = [[ArticleDetailViewController alloc] initWithNibName:@"ArticleView" bundle:nil];
+    //    ArticleDetailViewController *articleDetailsViewCrl = [[ArticleDetailViewController alloc] init];
+    
+    [articleDetailsViewCrl setArticle:article];
+    [articleDetailsViewCrl setHidesBottomBarWhenPushed:YES];
+    // [theApp.viewController showViewController:articleDetailsViewCrl animated:YES];
+    //      [self.navigationController pushViewController:articleDetailsViewCrl animated:YES];
+    [theApp._viewController pushViewController:articleDetailsViewCrl animated:YES];
+    
+    [articleDetailsViewCrl release];
+    
+}
+
+
+
 @end
