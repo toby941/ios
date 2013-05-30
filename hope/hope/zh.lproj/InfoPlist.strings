@@ -1,3 +1,2 @@
 /* Localized versions of Info.plist keys */
-
-APP_NAME="Manual of lung cancer"
+"CFBundleDisplayName"="肺癌应对指南";

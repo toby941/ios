@@ -79,6 +79,7 @@
 	
 	[self.view bringSubviewToFront:_controllerHome.view];
     [super viewDidLoad];
+       
 }
 
 

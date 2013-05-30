@@ -13,6 +13,7 @@
 #import "ArticleCell.h"
 #import "hopeAppDelegate.h"
 #import "Article.h"
+#import "Utils.h"
 
 #import<QuartzCore/QuartzCore.h>
 #import "ArticleDetailViewController.h"
@@ -23,6 +24,7 @@
 @interface ListViewController ()
 #define NAVIGATIONVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width,  44)
 #define TABLEVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+44, self.view.bounds.size.width,  self.view.bounds.size.height)
+#define HOME_API @"/api/hope/news/category/0?page=%d"
 // Private helper methods
 - (void) addItemsOnTop;
 - (void) addItemsOnBottom;
@@ -30,13 +32,15 @@
 
 @implementation ListViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.page=0;
+        self.path=HOME_API;
     }
-    return self; 
+    return self;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -48,15 +52,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.page=0;
     [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
-      
+    
     
     UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [bgImageView setImage:[UIImage imageNamed:@"bg"]];
+    [bgImageView setImage:[UIImage imageNamed:@"bg.png"]];
     
     
-    NSURL* url=[[DataContext sharedInstance] urlFor:URLIndex];
+    NSURL* url=[[DataContext sharedInstance] getUrl:self.path page:self.page];
     [[DataContext sharedInstance] fetchURL:url
                                    success:^(id result, BOOL finished){
                                        self.items = [result objectForKey:@"news"];
@@ -66,7 +70,7 @@
                                        
                                    }
      ];
-   
+    
     
     //设置阴影
     bgImageView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -109,7 +113,7 @@
         nib = [[NSBundle mainBundle] loadNibNamed:@"TableFooterView" owner:self options:nil];
         TableFooterView *footerView = (TableFooterView *)[nib objectAtIndex:0];
         self.footerView = footerView;
-
+        
     }
     else
     {
@@ -140,7 +144,12 @@
         
         
         UILabel *title=[[UILabel alloc] initWithFrame:CGRectMake(128, 2, 160, 40)];
-        title.text=@"首页";
+        if(self.title==nil){
+            title.text=@"首页";
+        }else{
+            title.text=self.title;
+        }
+        
         [title setFont:[UIFont boldSystemFontOfSize:20]];
         title.backgroundColor=[UIColor clearColor];
         title.textColor=[UIColor whiteColor];
@@ -177,7 +186,7 @@
     hv.title.text = @"Loading...";
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+
 - (void) unpinHeaderView
 {
     [super unpinHeaderView];
@@ -207,23 +216,23 @@
 {
     if (![super refresh])
         return NO;
-    
+    self.page=1;
     // Do your async call here
-    NSURL* url=[[DataContext sharedInstance] urlFor:URLIndex];
+    NSURL* url=[[DataContext sharedInstance] getUrl:self.path page:(self.page)];
     [[DataContext sharedInstance] fetchURL:url
                                    success:^(id items, BOOL finished){
                                        self.items = [items objectForKey:@"news"];
-                    [self performSelector:@selector(addItemsOnTop) withObject:nil afterDelay:2.0];
+                                       [self performSelector:@selector(addItemsOnTop) withObject:nil afterDelay:2.0];
                                    }
                                    failure:^(NSError* error){
                                        
                                    }
      ];
-
+    
     
     
     // This is just a dummy data loader:
-   
+    
     // See -addItemsOnTop for more info on how to finish loading
     return YES;
 }
@@ -271,8 +280,10 @@
     if (![super loadMore])
         return NO;
     
-    NSLog(@"load more");
-    NSURL* url=[[DataContext sharedInstance] urlFor:URLIndex];
+    self.page=self.page+1;
+    NSLog(@"page  size:%d",self.page);
+    
+    NSURL* url=[[DataContext sharedInstance] getUrl:self.path page:(self.page)];
     [[DataContext sharedInstance] fetchURL:url
                                    success:^(id items, BOOL finished){
                                        NSArray* array = [items objectForKey:@"news"];
@@ -281,6 +292,10 @@
                                        
                                    }
                                    failure:^(NSError* error){
+                                       
+                                       UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"提示" message:[error localizedDescription] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                                       alert.alertViewStyle=UIAlertViewStyleDefault;
+                                       [alert show];
                                        
                                    }
      ];
@@ -316,7 +331,7 @@
     
     // Inform STableViewController that we have finished loading more items
     [self loadMoreCompleted];
-    }
+}
 
 
 
@@ -330,7 +345,7 @@
     }
     NSInteger count=self.items.count;
     return count;
- 
+    
 }
 
 
@@ -342,19 +357,25 @@
     {
         cell = [[[ArticleCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellStr] autorelease];
     }
-    
     Article* art = [self.items objectAtIndex:indexPath.row];
     [cell setArticle:art];
     [cell setSelectionStyle:UITableViewCellSelectionStyleGray];
     [cell.textLabel setText:art.title];
-    
     [cell.detailTextLabel setText:art.time];
-    
-    NSURL* imageURL = [NSURL URLWithString:art.img];
-    [cell.titleImageView setImageWithURL:imageURL];
+   
+//    if([Utils isEmptyOrNull:art.img]){
+//        NSLog(@"art img:%@",art.img);
+//        NSURL* imageURL = [NSURL URLWithString:@"http://media.pubsage.com/media/news/20130520/635046563281516799.jpg"];
+//        [cell.titleImageView setImageWithURL:imageURL];
+//        
+//    }else{
+//        NSURL* imageURL = [NSURL URLWithString:@"http://media.pubsage.com/media/news/20130520/635046563281516799.jpg"];
+//        //NSURL* imageURL = [NSURL URLWithString:art.img];
+//        [cell.titleImageView setImageWithURL:imageURL];
+//    }
     [cell setSelectedBackgroundView:[[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"didCellBg"]]autorelease]];
     return cell;
-
+    
 }
 
 

@@ -8,7 +8,7 @@
 
 #import "DataContext.h"
 #import "XHTTPOperation.h"
-#import "NetworkManager.h"
+#import "NetworkManager.h" 
 #import "Article.h"  
 #import "JSONKit.h"
 #import <SystemConfiguration/SystemConfiguration.h> 
@@ -53,17 +53,10 @@ return @"http://weimp.sinaapp.com";
  //return @"http://192.168.1.16:9091";
 }
 
-- (NSURL*)urlFor:(URLType)type page:(NSUInteger)page
+- (NSURL*)getUrl:(NSString*)path page:(int)page
 {
-    NSString* urlSuffix = nil;
-    switch (type) {
-       
-        case URLNews:
-            urlSuffix = @"/api/hope/news";
-            break;
-        default:
-            break;
-    }
+    
+    NSString* urlSuffix = [NSString stringWithFormat:path, page];
     NSString* urlStr = [NSString stringWithFormat:@"%@%@",[self urlHost],urlSuffix];
     NSURL* url = [NSURL URLWithString:urlStr];
 
@@ -77,30 +70,8 @@ return @"http://weimp.sinaapp.com";
     return url;
 }
 
-- (NSURL*)urlFor:(URLType)type
-{
 
-  NSString* urlSuffix;
-  switch (type) {
-//    case URLNearby:
-//          urlSuffix = [NSString stringWithFormat:@"/api/xinjiekou/products?page_size=100&sid=%@", [Util getUserInfoID]];
-//      break;
-    case URLNews:
-      urlSuffix = @"/api/hope/news";
-      break;
-      case URLIndex:
-          urlSuffix = @"/api/hope/news/category/0";
-          break;
-      default:
-      break;
-  }
-  NSString* urlStr = [NSString stringWithFormat:@"%@%@",[self urlHost],urlSuffix];
-  NSURL* url = [NSURL URLWithString:urlStr];
- 
-  return url;
-}
-
-- (id)itemsFrom:(NSData*)data for:(URLType)type error:(NSError**)error{
+- (id)itemsFrom:(NSData*)data  error:(NSError**)error{
   JSONDecoder* decoder = [JSONDecoder decoder];
   NSDictionary* dict = [decoder objectWithData:data];
   id items = nil;
@@ -117,8 +88,7 @@ return @"http://weimp.sinaapp.com";
                              userInfo:nil];
     return items;
   }
-  switch (type) {
-      case URLNews:{
+  
         items = [NSMutableDictionary dictionaryWithCapacity:10];
         NSMutableArray* itemArray = [NSMutableArray arrayWithCapacity:10];
       
@@ -136,12 +106,6 @@ return @"http://weimp.sinaapp.com";
             [a release];
         }
         [items setObject:itemArray forKey:@"news"];
-      }
-          break;
-         default:
-      break;
-  }
-  
   return items;
 }
 
@@ -179,8 +143,7 @@ return @"http://weimp.sinaapp.com";
   NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                             successCopy,@"success",
                             failureCopy,@"failure",
-                            [NSNumber numberWithInt:URLNews],@"type"
-                            , nil];
+                            nil];
   NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:urlPath];
 //  [urlRequest setAllHTTPHeaderFields:[NSDictionary dictionaryWithObjectsAndKeys:
 //                                      AppCode,@"mt-appcode", nil]];
@@ -202,8 +165,7 @@ return @"http://weimp.sinaapp.com";
     NSDictionary* userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                               successCopy,@"success",
                               failureCopy,@"failure",
-                              [NSNumber numberWithInt:URLNews],@"type"
-                              , nil];
+                             nil];
     NSMutableURLRequest* urlRequest = [NSMutableURLRequest requestWithURL:urlPath];
 //    [urlRequest setAllHTTPHeaderFields:[NSDictionary dictionaryWithObjectsAndKeys:
 //                                        AppCode,@"mt-appcode", nil]];
@@ -216,11 +178,10 @@ return @"http://weimp.sinaapp.com";
 
 - (void)finishFetch:(XHTTPOperation*)operation{
   NSDictionary* userInfo = [operation userInfo];
-  URLType urlType = [[userInfo objectForKey:@"type"] intValue];
+
   if (operation.error == nil) {
     NSError* error = nil;
     id items = [self itemsFrom:operation.responseBody
-                           for:urlType
                          error:&error];
     if (error == nil) {
       [self didFetchItems:items userInfo:userInfo];

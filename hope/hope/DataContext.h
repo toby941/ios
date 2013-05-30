@@ -9,12 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Util.h"
 
-enum URLType { 
-  URLIndex,
-  URLNews
 
-};
-typedef enum URLType URLType;
 
 #if NS_BLOCKS_AVAILABLE
 
@@ -28,7 +23,8 @@ typedef void(^FetchFailBlock)(NSError *error);
 
 + (id)sharedInstance;
 
-- (NSURL*)urlFor:(URLType)type;
+- (NSURL*)getUrl:(NSString*)path page:(int)page;
+
 -(NSURL*)getUrl:(NSString*)path;
 
 

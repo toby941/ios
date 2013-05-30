@@ -20,6 +20,8 @@
 @interface HomeViewController ()
 #define NAVIGATIONVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width,  44)
 #define TABLEVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+44, self.view.bounds.size.width,  self.view.bounds.size.height)
+
+#define HOME_API @"/api/hope/news/category/0?page=%d"
 // Private helper methods
 - (void) addItemsOnTop;
 - (void) addItemsOnBottom;
@@ -53,7 +55,7 @@
     [bgImageView setImage:[UIImage imageNamed:@"bg"]];
  
        
-    NSURL* url=[[DataContext sharedInstance] urlFor:URLIndex];
+    NSURL* url=[[DataContext sharedInstance] getUrl:HOME_API];
     [[DataContext sharedInstance] fetchURL:url
                                    success:^(id items, BOOL finished){
                                        self.newsArray = [items objectForKey:@"news"];
@@ -267,7 +269,7 @@
 	_reloading = YES;
 	//  should be calling your tableviews data source model to reload
 	//  put here just for demo
-    NSURL* url=[[DataContext sharedInstance] urlFor:URLIndex];
+    NSURL* url=[[DataContext sharedInstance] getUrl:HOME_API];
     [[DataContext sharedInstance] fetchURL:url
                                    success:^(id items, BOOL finished){
                                        self.newsArray = [items objectForKey:@"news"];
@@ -349,7 +351,7 @@
     if (![super loadMore])
         return NO;
     NSArray* array=nil;
-    NSURL* url=[[DataContext sharedInstance] urlFor:URLIndex];
+    NSURL* url=[[DataContext sharedInstance] getUrl:HOME_API];
     [[DataContext sharedInstance] fetchURL:url
                                    success:^(id items, BOOL finished){
                                    NSArray* array = [items objectForKey:@"news"];

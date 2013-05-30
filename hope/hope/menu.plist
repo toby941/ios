@@ -8,7 +8,7 @@
 		<key>name</key>
 		<string>首页</string>
 		<key>path</key>
-		<string>/api/hope/news/category/0</string>
+		<string>/api/hope/news/category/0?page=%d</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -16,7 +16,7 @@
 		<key>name</key>
 		<string>日记</string>
 		<key>path</key>
-		<string>/api/hope/news/category/1</string>
+		<string>/api/hope/news/category/1?page=%d</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -24,7 +24,7 @@
 		<key>name</key>
 		<string>书籍</string>
 		<key>path</key>
-		<string>/api/hope/news/category/2</string>
+		<string>/api/hope/news/category/2?page=%d</string>
 	</dict>
     <dict>
 		<key>id</key>
@@ -32,7 +32,7 @@
 		<key>name</key>
 		<string>饮食</string>
 		<key>path</key>
-		<string>/api/hope/news/category/3</string>
+		<string>/api/hope/news/category/3?page=%d</string>
 	</dict>
     <dict>
 		<key>id</key>
@@ -40,7 +40,7 @@
 		<key>name</key>
 		<string>用药</string>
 		<key>path</key>
-		<string>/api/hope/news/category/4</string>
+		<string>/api/hope/news/category/4?page=%d</string>
 	</dict>
     <dict>
 		<key>id</key>
@@ -48,7 +48,7 @@
 		<key>name</key>
 		<string>医院</string>
 		<key>path</key>
-		<string>/api/hope/news/category/5</string>
+		<string>/api/hope/news/category/5?page=%d</string>
 	</dict>
 </array>
 </plist>

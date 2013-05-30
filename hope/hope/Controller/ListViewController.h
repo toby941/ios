@@ -12,4 +12,7 @@
   UIView *bgView;
 }
 @property (nonatomic, strong) NSMutableArray* items;
+@property (nonatomic,strong) NSString* path;
+@property (nonatomic) int page;
+@property (nonatomic,copy) NSString *title;
 @end
