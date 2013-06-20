@@ -50,5 +50,13 @@
 		<key>path</key>
 		<string>/api/hope/news/category/5?page=%d</string>
 	</dict>
+    <dict>
+		<key>id</key>
+		<integer>6</integer>
+		<key>name</key>
+		<string>关于</string>
+		<key>path</key>
+		<string>/api/hope/news/category/6?page=%d</string>
+	</dict>
 </array>
 </plist>

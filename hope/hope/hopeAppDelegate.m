@@ -9,7 +9,7 @@
 #import "hopeAppDelegate.h"
 #import<QuartzCore/QuartzCore.h>
 #import "ListViewController.h"
-
+#import "MobClick.h"
 @implementation hopeAppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -45,6 +45,8 @@
 //    [self.window makeKeyAndVisible];
 //    self.window.rootViewController = [SRTViewController new];
 //
+  [MobClick startWithAppkey:@"51a7220f56240b0e6b00509c"];
+    
     return YES;
     
     

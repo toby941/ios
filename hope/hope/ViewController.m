@@ -24,8 +24,8 @@
     CGRect rect = CGRectMake(0, 0,
                              self.view.frame.size.width,
                              self.view.frame.size.height);
-    
-    NSLog(@"w:%f, h:%f", rect.size.width, rect.size.height);
+
+ //   NSLog(@"w:%f, h:%f", rect.size.width, rect.size.height);
     UIImageView *imageleft = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"left.png"]];
     imageleft.frame = rect;
     [self.view addSubview:imageleft];

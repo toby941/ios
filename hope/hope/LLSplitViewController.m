@@ -315,7 +315,7 @@
 	
 	if(animated)
 	{
-		NSLog(@"leftview controllerhome.position = %@", NSStringFromCGPoint(_controllerHome.view.layer.position));
+	//	NSLog(@"leftview controllerhome.position = %@", NSStringFromCGPoint(_controllerHome.view.layer.position));
 		
 		CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
 		animation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:_controllerHome.view.center.x], [NSNumber numberWithFloat:320 + 160 - kOverlayWidth + kOverlayBufferWidth],\
@@ -359,7 +359,7 @@
 	
 	if(animated)
 	{
-		NSLog(@"rightview controllerhome.position = %@", NSStringFromCGPoint(_controllerHome.view.layer.position));
+		//NSLog(@"rightview controllerhome.position = %@", NSStringFromCGPoint(_controllerHome.view.layer.position));
 		
 		CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
 		animation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:_controllerHome.view.center.x], [NSNumber numberWithFloat:-160 + kOverlayWidth - kOverlayBufferWidth],\
@@ -391,7 +391,7 @@
 {
 	if(animated)
 	{
-		NSLog(@"controllerhome.position = %@", NSStringFromCGPoint(_controllerHome.view.layer.position));
+		//NSLog(@"controllerhome.position = %@", NSStringFromCGPoint(_controllerHome.view.layer.position));
 		
 		CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position.x"];
 		animation.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:_controllerHome.view.center.x], [NSNumber numberWithFloat:160],\
@@ -413,13 +413,13 @@
 - (void)overLayViewCenterChanged:(CGPoint)offset_
 {
 	CGPoint pt_ = _controllerHome.view.center;
-	NSLog(@"pt = %@", NSStringFromCGPoint(pt_));
+	//NSLog(@"pt = %@", NSStringFromCGPoint(pt_));
 	
-	NSLog(@"oofset = %@", NSStringFromCGPoint(offset_));
+//	NSLog(@"oofset = %@", NSStringFromCGPoint(offset_));
 	
 	CGPoint ptCurrent = CGPointMake(pt_.x + offset_.x, pt_.y);
 	
-	NSLog(@"ptcurrent = %@", NSStringFromCGPoint(ptCurrent));
+	//NSLog(@"ptcurrent = %@", NSStringFromCGPoint(ptCurrent));
 	
 	
 	//最左边
@@ -549,7 +549,7 @@
 {
 	UITouch *touch = [touches anyObject];
 	CGPoint pt_ = [touch locationInView:[[UIApplication sharedApplication] keyWindow]];
-    NSLog(@" touchesEnded  point = %@", NSStringFromCGPoint(pt_));
+ //   NSLog(@" touchesEnded  point = %@", NSStringFromCGPoint(pt_));
 	
 	if(!bTaped)
 	{

@@ -81,7 +81,7 @@
     [timeIcon setImage:[UIImage imageNamed:@"icon-time"]];
     [self.contentView addSubview:timeIcon];
     
-    NSLog(@"art summary :%@",_article.summary);
+   // NSLog(@"art summary :%@",_article.summary);
     if(summaryView==nil){
         summaryView=  [[UILabel alloc] initWithFrame:CGRectMake(summaryX,  summaryY, summaryW, summaryH)];
         [summaryView setFont:[UIFont systemFontOfSize:12]];

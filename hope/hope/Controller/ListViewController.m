@@ -80,7 +80,7 @@
     bgImageView.clipsToBounds = NO;
     
     //UIView设置边框
-    [[bgImageView layer] setCornerRadius:10];
+   // [[bgImageView layer] setCornerRadius:10];
     [[bgImageView layer] setBorderWidth:2];
     [[bgImageView layer] setBorderColor:[UIColor blackColor].CGColor];
     
@@ -183,7 +183,7 @@
     // do custom handling for the header view
     TableHeaderView *hv = (TableHeaderView *)self.headerView;
     [hv.activityIndicator startAnimating];
-    hv.title.text = @"Loading...";
+    hv.title.text = NSLocalizedString( @"Loading...", @"Pull down to refresh");
 }
 
 
@@ -203,9 +203,9 @@
 {
     TableHeaderView *hv = (TableHeaderView *)self.headerView;
     if (willRefreshOnRelease)
-        hv.title.text = @"Release to refresh...";
+        hv.title.text =  NSLocalizedString(@"Release to refresh...", @"Pull down to refresh status");
     else
-        hv.title.text = @"Pull down to refresh...";
+        hv.title.text = NSLocalizedString(@"Pull down to refresh...", @"Pull down to refresh");
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -281,7 +281,7 @@
         return NO;
     
     self.page=self.page+1;
-    NSLog(@"page  size:%d",self.page);
+    //NSLog(@"page  size:%d",self.page);
     
     NSURL* url=[[DataContext sharedInstance] getUrl:self.path page:(self.page)];
     [[DataContext sharedInstance] fetchURL:url

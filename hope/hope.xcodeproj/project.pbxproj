@@ -116,6 +116,8 @@
 		DAE7490917290DEE00234814 /* icon-comments@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE7490717290DEE00234814 /* icon-comments@2x.png */; };
 		DAE7490C17291AA300234814 /* nav-left.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE7490A17291AA200234814 /* nav-left.png */; };
 		DAE7490D17291AA300234814 /* nav-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DAE7490B17291AA300234814 /* nav-left@2x.png */; };
+		DAF420701758851500158717 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF4206E1758851400158717 /* libMobClickLibrary.a */; };
+		DAF420721758852800158717 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF420711758852800158717 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,6 +268,9 @@
 		DAE7490717290DEE00234814 /* icon-comments@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-comments@2x.png"; sourceTree = "<group>"; };
 		DAE7490A17291AA200234814 /* nav-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-left.png"; sourceTree = "<group>"; };
 		DAE7490B17291AA300234814 /* nav-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav-left@2x.png"; sourceTree = "<group>"; };
+		DAF4206E1758851400158717 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMobClickLibrary.a; path = hope/umeng/libMobClickLibrary.a; sourceTree = "<group>"; };
+		DAF4206F1758851500158717 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MobClick.h; path = hope/umeng/MobClick.h; sourceTree = "<group>"; };
+		DAF420711758852800158717 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAF420721758852800158717 /* libz.dylib in Frameworks */,
 				DAE748FF17229F8000234814 /* ImageIO.framework in Frameworks */,
 				DA102490171BD600006A616F /* SDWebImage.framework in Frameworks */,
 				DA102489171BC40E006A616F /* SystemConfiguration.framework in Frameworks */,
@@ -281,6 +287,7 @@
 				DA10241F1718111B006A616F /* CoreData.framework in Frameworks */,
 				DA1023D31717FC6F006A616F /* UIKit.framework in Frameworks */,
 				DA1023D71717FC6F006A616F /* CoreGraphics.framework in Frameworks */,
+				DAF420701758851500158717 /* libMobClickLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +308,9 @@
 		DA1023C31717FC6F006A616F = {
 			isa = PBXGroup;
 			children = (
+				DAF420711758852800158717 /* libz.dylib */,
+				DAF4206E1758851400158717 /* libMobClickLibrary.a */,
+				DAF4206F1758851500158717 /* MobClick.h */,
 				DAC80C80174DFA15005090C1 /* Default-568h@2x.png */,
 				DAC80C81174DFA15005090C1 /* Default.png */,
 				DAC80C82174DFA15005090C1 /* Default@2x.png */,
@@ -903,6 +913,10 @@
 				GCC_PREFIX_HEADER = "hope/hope-Prefix.pch";
 				INFOPLIST_FILE = "hope/hope-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/hope/umeng\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos6.0;
@@ -922,6 +936,10 @@
 				GCC_PREFIX_HEADER = "hope/hope-Prefix.pch";
 				INFOPLIST_FILE = "hope/hope-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/hope/umeng\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos6.0;

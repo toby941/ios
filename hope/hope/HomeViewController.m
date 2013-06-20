@@ -83,7 +83,7 @@
     //UIView设置边框
     [[bgImageView layer] setCornerRadius:10];
     [[bgImageView layer] setBorderWidth:2];
-    [[bgImageView layer] setBorderColor:[UIColor blackColor].CGColor];
+   // [[bgImageView layer] setBorderColor:[UIColor blackColor].CGColor];
     
     [self.view addSubview:bgImageView];
     [self showNavigationView];
