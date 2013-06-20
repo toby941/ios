@@ -18,6 +18,7 @@
 
 @property (nonatomic, assign) NSInteger point;
 
-@property (nonatomic, strong) NSArray* newsArray;
+@property (nonatomic, strong) NSMutableArray* personArray;
+@property (nonatomic,strong) Person* summaryPerson;
 @property (nonatomic, retain) QBPopupMenu *popupMenu;
 @end

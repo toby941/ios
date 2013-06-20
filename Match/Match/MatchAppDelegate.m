@@ -21,7 +21,7 @@
     UIViewController *viewController1, *viewController2;
    self.window.backgroundColor = [UIColor whiteColor];
         viewController1 = [[MatchFirstViewController alloc] init];
-        viewController2 = [[MatchSecondViewController alloc] init];
+        viewController2 = [[MatchFirstViewController alloc] init];
    
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[viewController1, viewController2];

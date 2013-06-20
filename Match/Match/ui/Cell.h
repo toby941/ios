@@ -47,7 +47,7 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView* icon;//头像
 
--(Person*)makePerson:(NSInteger)tagValue targetValue:(NSInteger)value;
+-(Person*)makePerson:(NSInteger)tagValue targetValue:(int)value;
 -(void) updateByAnotherPerson:(Person*)p;
 - (void)setCustomIcon:(NSString*)path;
 - (IBAction)showPopupMenu:(id)sender;

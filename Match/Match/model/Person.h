@@ -12,19 +12,21 @@
 
 @property (nonatomic, copy) NSString* id;
 @property (nonatomic, copy) NSString* name;
-@property (nonatomic) NSInteger* pts;//总得分
-@property (nonatomic) NSInteger* blk;//篮板球
-@property (nonatomic) NSInteger* ast;//助攻
-@property (nonatomic) NSInteger* ft;//罚球次数
-@property (nonatomic) NSInteger* pf;//犯规次数
-@property (nonatomic) NSInteger* threepm;//三分球
-@property (nonatomic) NSInteger* fg;//投篮
-@property (nonatomic) NSInteger* st;//抢断
+@property (nonatomic,assign) int pts;//总得分
+@property (nonatomic,assign)int blk;//篮板球
+@property (nonatomic,assign) int ast;//助攻
+@property (nonatomic,assign)int ft;//罚球次数
+@property (nonatomic,assign)int pf;//犯规次数
+@property (nonatomic,assign) int threepm;//三分球
+@property (nonatomic,assign) int fg;//投篮
+@property (nonatomic,assign) int st;//抢断
 
 
 @property (nonatomic, copy) NSString* img;           // Picture URL
 @property (nonatomic, copy) NSString* href;        // News Detail URL
 @property (nonatomic, strong) UIImage*  picImage;
 
+-(void) update:(Person*)updatePerson;
+-(void) updatePts;
 
 @end

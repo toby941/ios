@@ -11,7 +11,7 @@
 #import "QBPopupMenu.h"
 #import "Person.h"
 @interface MatchFirstViewController ()
-#define TABLEVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+44, self.view.bounds.size.width,  self.view.bounds.size.height)
+#define TABLEVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+44, self.view.bounds.size.width,  self.view.bounds.size.height-100)
 @end
 
 @implementation MatchFirstViewController
@@ -37,17 +37,13 @@
 - (void)initTableView
 {
     if (tblView == nil) {
+        [self getPerson];
         tblView = [[UITableView alloc] initWithFrame:TABLEVIEWFRAME style:UITableViewStylePlain];//CGRectMake(0, 0, 320 , 460)
         tblView.delegate = self;
         tblView.dataSource = self;
         tblView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         tblView.separatorColor = [UIColor blackColor];
         // [tblView setBackgroundColor:[UIColor clearColor]];
-        
-        
-        
-        
-        
         [self.view addSubview:tblView];
         
     }
@@ -59,6 +55,19 @@
     
     
 }
+
+-(void) getPerson{
+    NSInteger count=7;
+    _personArray=[[NSMutableArray alloc]initWithCapacity:count];
+    for (int i=0;i<count;i++) {
+        Person* p= [[Person alloc] init];
+        [p setImg: [NSString stringWithFormat:@"%d.png" ,i+1]];
+        _personArray[i]=p;
+    }
+    _summaryPerson=[[Person alloc]init];
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 80;
@@ -74,7 +83,7 @@
     if(section==0){
         return 1;
     }else{
-        return 5;
+        return _personArray.count;
     }
 	
 }
@@ -93,6 +102,7 @@
     
     NSInteger section=indexPath.section;
     
+    
     static NSString *CellIdentifier = @"CustomCell";
     
     Cell *cell = (Cell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -100,18 +110,26 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"Cell" owner:self options:nil];
         cell = (Cell *)[nib objectAtIndex:0];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        [cell initButton];
     }
+        
     NSString* path=nil;
     if(section==0){
         path= [NSString stringWithFormat:@"%d.png" ,indexPath.row+1];
         [cell setIsManinCell:TRUE];
+        [cell setP:_summaryPerson];
     }else{
         path= [NSString stringWithFormat:@"%d.jpeg" ,indexPath.row+1];
         cell.delegate=self;
+        [cell setIsManinCell:FALSE];
+
+        Person* p = [self.personArray objectAtIndex:indexPath.row];
+        [cell setP:p];
+
     }
     
     [cell setCustomIcon:path];
-    [cell initButton];
+  
     return cell;
     
 }
@@ -123,7 +141,9 @@
     // Dispose of any resources that can be recreated.
 }
 -(void) callChangeValue:(Person*)p{
+    NSLog(@"callChangeValue called");
     Cell* summaryCell=[tblView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    [_summaryPerson update:p];
     [summaryCell updateByAnotherPerson:p];
     
     

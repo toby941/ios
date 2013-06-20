@@ -32,6 +32,8 @@
     return self;
 }
 
+
+
 - (void) initButton{
     // popupMenu
     QBPopupMenu *popupMenu = [[QBPopupMenu alloc] init];
@@ -76,8 +78,17 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
-    
+    if(self.p!=nil){
+        Person* p=self.p;
+        [fg setTitle:[NSString stringWithFormat: @"%d", p.fg] forState:UIControlStateNormal]; fg.tag=1;
+        [threepm setTitle:[NSString stringWithFormat: @"%d", p.threepm] forState:UIControlStateNormal];threepm.tag=2;
+        [blk setTitle:[NSString stringWithFormat: @"%d", p.blk] forState:UIControlStateNormal];blk.tag=3;
+        [ast setTitle:[NSString stringWithFormat: @"%d", p.ast] forState:UIControlStateNormal];ast.tag=4;
+        [st setTitle:[NSString stringWithFormat: @"%d", p.st] forState:UIControlStateNormal];st.tag=5;
+        [ft setTitle:[NSString stringWithFormat: @"%d", p.ft] forState:UIControlStateNormal];ft.tag=6;
+        [pf setTitle:[NSString stringWithFormat: @"%d", p.pf]forState:UIControlStateNormal];pf.tag=7;
+    }
+     [self updatePts];
 }
 
 - (IBAction)showPopupMenu:(id)sender {
@@ -111,29 +122,38 @@
     
 }
 
--(Person*)makePerson:(NSInteger)tagValue targetValue:(NSInteger)value{
+-(Person*)makePerson:(NSInteger)tagValue targetValue:(int)value{
     Person* p=[[Person alloc]init];
+    Person* cuentPerson=[self p];
     switch (tagValue) {
         case 1:
             p.fg=value;
+            
+            cuentPerson.fg+=value;
             break;
         case 2:
             p.threepm=value;
+             cuentPerson.threepm=cuentPerson.threepm+value;
             break;
         case 3:
             p.blk=value;
+             cuentPerson.blk=cuentPerson.blk+value;
             break;
         case 4:
             p.ast=value;
+             cuentPerson.ast=cuentPerson.ast+value;
             break;
         case 5:
             p.st=value;
+             cuentPerson.st=cuentPerson.st+value;
             break;
         case 6:
             p.ft=value;
+             cuentPerson.ft=cuentPerson.ft+value;
             break;
         case 7:
             p.pf=value;
+             cuentPerson.pf=cuentPerson.pf+value;
             break;
         default:
             break;
@@ -143,38 +163,41 @@
 }
 
 -(void) updateByAnotherPerson:(Person*)p{
-    UIButton *button =nil;
+    if(isManinCell){
+        UIButton *button =nil;
     NSInteger updateValue=nil;
     if(p.fg!=0){
         button=fg;
         updateValue=p.fg;
     }else if (p.threepm!=0){
         button=threepm;
-         updateValue=p.threepm;
+        updateValue=p.threepm;
     }else if (p.blk!=0){
         button=blk;
-         updateValue=p.blk;
+        updateValue=p.blk;
     }else if (p.ast!=0){
         button=ast;
-         updateValue=p.ast;
+        updateValue=p.ast;
     }else if (p.st!=0){
         button=st;
-         updateValue=p.st;
+        updateValue=p.st;
     }else if (p.ft!=0){
         button=ft;
-         updateValue=p.ft;
+        updateValue=p.ft;
     }else if (p.pf!=0){
         button=pf;
-         updateValue=p.pf;
+        updateValue=p.pf;
     }
     NSString* value = button.currentTitle;
     NSInteger point= [value intValue ];
-      point=point+updateValue;
+    point=point+updateValue;
     if (point<0) {
         point=0;
     }
     [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
     [self updatePts];
+    }
+
 }
 
 
@@ -185,15 +208,14 @@
     NSInteger point= [value intValue ];
     if(point>0){
         point=point-1;
-    }
+  
     [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
     [self updatePts];
     Person* p= [self makePerson:button.tag targetValue:-1];
     if(!isManinCell&&[_delegate respondsToSelector:@selector(callChangeValue:)]){
         [_delegate callChangeValue:p];
     }
-    
-    
+      }
     
 }
 
