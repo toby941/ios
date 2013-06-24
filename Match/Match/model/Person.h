@@ -10,8 +10,9 @@
 
 @interface Person : NSObject
 
-@property (nonatomic, copy) NSString* id;
-@property (nonatomic, copy) NSString* name;
+@property (nonatomic,copy) NSString* id;
+@property (strong,atomic)NSString* name;
+
 @property (nonatomic,assign) int pts;//总得分
 @property (nonatomic,assign)int blk;//篮板球
 @property (nonatomic,assign) int ast;//助攻
@@ -26,7 +27,16 @@
 @property (nonatomic, copy) NSString* href;        // News Detail URL
 @property (nonatomic, strong) UIImage*  picImage;
 
+/*
+ 将updatePerson迁移至本体
+ */
 -(void) update:(Person*)updatePerson;
+/*
+ 更新总分数
+ */
 -(void) updatePts;
-
+/*
+ 对数据清零
+ */
+-(void) clear;
 @end

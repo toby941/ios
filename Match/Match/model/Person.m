@@ -26,4 +26,16 @@
     NSInteger ftValue = self.ft;
      self.pts=fgValue+threeValue+ftValue;
 }
+
+-(void) clear{
+    self.fg=0;
+    self.threepm=0;
+    self.blk=0;
+    self.ast=0;
+    self.ft=0;
+    self.pf=0;
+    self.st=0;
+    [self updatePts];
+}
+
 @end

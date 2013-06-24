@@ -8,17 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "Cell.h"
+#import "MyImagePickerMutilSelector.h"
+#import "PeopleList.h"
+
 @class QBPopupMenu;
 @protocol MatchFirstViewController;
-@interface MatchFirstViewController : UIViewController<UITableViewDataSource, UITableViewDelegate,callChangeDelegate>
+@interface MatchFirstViewController : UIViewController<MyImagePickerMutilSelectorDelegate,UITableViewDataSource, UITableViewDelegate,callChangeDelegate>
 {
-       UITableView *tblView;    
+    UITableView *tblView;
+    UIView *headView;
+    UIButton *clearButton;
+    UIButton *clearTableViewButton;
+    UIButton *selectPersonButton;
 }
 @property (nonatomic, assign)id <MatchFirstViewController> delegate;
 
 @property (nonatomic, assign) NSInteger point;
 
 @property (nonatomic, strong) NSMutableArray* personArray;
-@property (nonatomic,strong) Person* summaryPerson;
+@property (atomic,strong) Person* summaryPerson;
 @property (nonatomic, retain) QBPopupMenu *popupMenu;
+@property (strong,atomic) PeopleList *selectedList;
+- (IBAction)clearCell:(id)sender;
+
 @end

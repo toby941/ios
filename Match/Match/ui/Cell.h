@@ -34,6 +34,8 @@
 @property (nonatomic, retain) QBPopupMenu *popupMenu;
 @property (nonatomic, retain) UIButton* currentButton;
 @property (nonatomic,assign) Boolean isManinCell;
+@property (nonatomic,retain) NSString* teamName;
+
 @property (nonatomic, retain) id <callChangeDelegate> delegate;
 
 @property (nonatomic, retain) IBOutlet UILabel* pts;//总得分

@@ -235,6 +235,7 @@
 		DA914AFB171BEB8D00FE3214 /* divider-top@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider-top@2x.png"; sourceTree = "<group>"; };
 		DA914AFC171BEB8D00FE3214 /* divider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "divider@2x.png"; sourceTree = "<group>"; };
 		DA914AFD171BEB8D00FE3214 /* dot-line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dot-line@2x.png"; sourceTree = "<group>"; };
+		DAABE99E1774234A008B0573 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		DAB37F5A173B7F00001C3528 /* STableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STableViewController.h; sourceTree = "<group>"; };
 		DAB37F5B173B7F00001C3528 /* STableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STableViewController.m; sourceTree = "<group>"; };
 		DAB37F5E173B8244001C3528 /* TableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableFooterView.h; sourceTree = "<group>"; };
@@ -308,9 +309,10 @@
 		DA1023C31717FC6F006A616F = {
 			isa = PBXGroup;
 			children = (
-				DAF420711758852800158717 /* libz.dylib */,
+				DAABE99E1774234A008B0573 /* libsqlite3.0.dylib */,
 				DAF4206E1758851400158717 /* libMobClickLibrary.a */,
 				DAF4206F1758851500158717 /* MobClick.h */,
+				DAF420711758852800158717 /* libz.dylib */,
 				DAC80C80174DFA15005090C1 /* Default-568h@2x.png */,
 				DAC80C81174DFA15005090C1 /* Default.png */,
 				DAC80C82174DFA15005090C1 /* Default@2x.png */,

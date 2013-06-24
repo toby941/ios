@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA1E3157177812EC0019868D /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1E3154177812EC0019868D /* bg.png */; };
+		DA1E3158177812EC0019868D /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1E3155177812EC0019868D /* del.png */; };
+		DA1E3159177812EC0019868D /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1E3156177812EC0019868D /* done.png */; };
 		DAA84E23176EF6CB001F0FD6 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA84E21176EF6CB001F0FD6 /* Cell.m */; };
 		DAA84E24176EF6CB001F0FD6 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAA84E22176EF6CB001F0FD6 /* Cell.xib */; };
 		DAA84E2A176EF71F001F0FD6 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA84E29176EF71F001F0FD6 /* Person.m */; };
@@ -34,9 +37,27 @@
 		DAABE98817706773008B0573 /* QBPopupMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE98417706773008B0573 /* QBPopupMenuItem.m */; };
 		DAABE98917706773008B0573 /* QBPopupMenuOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE98617706773008B0573 /* QBPopupMenuOverlayView.m */; };
 		DAABE98B1771BBFF008B0573 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DAABE98A1771BBFD008B0573 /* 1.png */; };
+		DAABE99417741FAB008B0573 /* MyImagePickerMutilSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE98C17741FAA008B0573 /* MyImagePickerMutilSelector.m */; };
+		DAABE99517741FAB008B0573 /* PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE98D17741FAA008B0573 /* PickerView.m */; };
+		DAABE99617741FAB008B0573 /* ImageHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE98E17741FAA008B0573 /* ImageHandle.m */; };
+		DAABE99717741FAB008B0573 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE99317741FAB008B0573 /* ImageCell.m */; };
+		DAABE99A17741FBC008B0573 /* PhotoList.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE99917741FBC008B0573 /* PhotoList.m */; };
+		DAABE99D1774220E008B0573 /* PeopleList.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE99B1774220E008B0573 /* PeopleList.m */; };
+		DAABE9A117742378008B0573 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DAABE9A017742378008B0573 /* libsqlite3.0.dylib */; };
+		DAABE9B117742416008B0573 /* FMDatabase+InMemoryOnDiskIO.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9A517742416008B0573 /* FMDatabase+InMemoryOnDiskIO.m */; };
+		DAABE9B217742416008B0573 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9A717742416008B0573 /* FMDatabase.m */; };
+		DAABE9B317742416008B0573 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9A917742416008B0573 /* FMDatabaseAdditions.m */; };
+		DAABE9B417742416008B0573 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9AB17742416008B0573 /* FMDatabasePool.m */; };
+		DAABE9B517742416008B0573 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9AD17742416008B0573 /* FMDatabaseQueue.m */; };
+		DAABE9B617742416008B0573 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9AE17742416008B0573 /* fmdb.m */; };
+		DAABE9B717742416008B0573 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9B017742416008B0573 /* FMResultSet.m */; };
+		DAABE9BA17742452008B0573 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DAABE9B817742452008B0573 /* DBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA1E3154177812EC0019868D /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		DA1E3155177812EC0019868D /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = del.png; sourceTree = "<group>"; };
+		DA1E3156177812EC0019868D /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
 		DAA84E20176EF6CB001F0FD6 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		DAA84E21176EF6CB001F0FD6 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		DAA84E22176EF6CB001F0FD6 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
@@ -75,6 +96,34 @@
 		DAABE98517706773008B0573 /* QBPopupMenuOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBPopupMenuOverlayView.h; sourceTree = "<group>"; };
 		DAABE98617706773008B0573 /* QBPopupMenuOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBPopupMenuOverlayView.m; sourceTree = "<group>"; };
 		DAABE98A1771BBFD008B0573 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		DAABE98C17741FAA008B0573 /* MyImagePickerMutilSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImagePickerMutilSelector.m; sourceTree = "<group>"; };
+		DAABE98D17741FAA008B0573 /* PickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerView.m; sourceTree = "<group>"; };
+		DAABE98E17741FAA008B0573 /* ImageHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageHandle.m; sourceTree = "<group>"; };
+		DAABE98F17741FAA008B0573 /* MyImagePickerMutilSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImagePickerMutilSelector.h; sourceTree = "<group>"; };
+		DAABE99017741FAA008B0573 /* PickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerView.h; sourceTree = "<group>"; };
+		DAABE99117741FAA008B0573 /* ImageHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageHandle.h; sourceTree = "<group>"; };
+		DAABE99217741FAA008B0573 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		DAABE99317741FAB008B0573 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		DAABE99817741FBB008B0573 /* PhotoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoList.h; path = model/PhotoList.h; sourceTree = "<group>"; };
+		DAABE99917741FBC008B0573 /* PhotoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoList.m; path = model/PhotoList.m; sourceTree = "<group>"; };
+		DAABE99B1774220E008B0573 /* PeopleList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleList.m; path = model/PeopleList.m; sourceTree = "<group>"; };
+		DAABE99C1774220E008B0573 /* PeopleList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleList.h; path = model/PeopleList.h; sourceTree = "<group>"; };
+		DAABE9A017742378008B0573 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		DAABE9A417742416008B0573 /* FMDatabase+InMemoryOnDiskIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMDatabase+InMemoryOnDiskIO.h"; sourceTree = "<group>"; };
+		DAABE9A517742416008B0573 /* FMDatabase+InMemoryOnDiskIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMDatabase+InMemoryOnDiskIO.m"; sourceTree = "<group>"; };
+		DAABE9A617742416008B0573 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		DAABE9A717742416008B0573 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		DAABE9A817742416008B0573 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		DAABE9A917742416008B0573 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		DAABE9AA17742416008B0573 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		DAABE9AB17742416008B0573 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		DAABE9AC17742416008B0573 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		DAABE9AD17742416008B0573 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		DAABE9AE17742416008B0573 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
+		DAABE9AF17742416008B0573 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		DAABE9B017742416008B0573 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		DAABE9B817742452008B0573 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		DAABE9B917742452008B0573 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAABE9A117742378008B0573 /* libsqlite3.0.dylib in Frameworks */,
 				DAA9A2311769DD4D0059BD16 /* UIKit.framework in Frameworks */,
 				DAA9A2331769DD4D0059BD16 /* Foundation.framework in Frameworks */,
 				DAA9A2351769DD4D0059BD16 /* CoreGraphics.framework in Frameworks */,
@@ -104,6 +154,10 @@
 		DAA84E27176EF6FC001F0FD6 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				DAABE99B1774220E008B0573 /* PeopleList.m */,
+				DAABE99C1774220E008B0573 /* PeopleList.h */,
+				DAABE99817741FBB008B0573 /* PhotoList.h */,
+				DAABE99917741FBC008B0573 /* PhotoList.m */,
 				DAA84E28176EF71F001F0FD6 /* Person.h */,
 				DAA84E29176EF71F001F0FD6 /* Person.m */,
 			);
@@ -113,6 +167,7 @@
 		DAA9A2211769DD4D0059BD16 = {
 			isa = PBXGroup;
 			children = (
+				DAABE9A017742378008B0573 /* libsqlite3.0.dylib */,
 				DAA9A2361769DD4D0059BD16 /* Match */,
 				DAA9A22F1769DD4D0059BD16 /* Frameworks */,
 				DAA9A22D1769DD4D0059BD16 /* Products */,
@@ -140,6 +195,7 @@
 		DAA9A2361769DD4D0059BD16 /* Match */ = {
 			isa = PBXGroup;
 			children = (
+				DAABE9A217742416008B0573 /* fmdb */,
 				DAABE98017706773008B0573 /* Classes */,
 				DAABE97517705B9E008B0573 /* resource */,
 				DAA84E27176EF6FC001F0FD6 /* model */,
@@ -176,6 +232,9 @@
 		DAABE97517705B9E008B0573 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				DA1E3154177812EC0019868D /* bg.png */,
+				DA1E3155177812EC0019868D /* del.png */,
+				DA1E3156177812EC0019868D /* done.png */,
 				DAABE98A1771BBFD008B0573 /* 1.png */,
 				DAABE97617705B9E008B0573 /* 1.jpeg */,
 				DAABE97717705B9E008B0573 /* 2.jpeg */,
@@ -189,6 +248,14 @@
 		DAABE98017706773008B0573 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DAABE98C17741FAA008B0573 /* MyImagePickerMutilSelector.m */,
+				DAABE98D17741FAA008B0573 /* PickerView.m */,
+				DAABE98E17741FAA008B0573 /* ImageHandle.m */,
+				DAABE98F17741FAA008B0573 /* MyImagePickerMutilSelector.h */,
+				DAABE99017741FAA008B0573 /* PickerView.h */,
+				DAABE99117741FAA008B0573 /* ImageHandle.h */,
+				DAABE99217741FAA008B0573 /* ImageCell.h */,
+				DAABE99317741FAB008B0573 /* ImageCell.m */,
 				DAABE98117706773008B0573 /* QBPopupMenu.h */,
 				DAABE98217706773008B0573 /* QBPopupMenu.m */,
 				DAABE98317706773008B0573 /* QBPopupMenuItem.h */,
@@ -197,6 +264,36 @@
 				DAABE98617706773008B0573 /* QBPopupMenuOverlayView.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		DAABE9A217742416008B0573 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				DAABE9B817742452008B0573 /* DBManager.m */,
+				DAABE9B917742452008B0573 /* DBManager.h */,
+				DAABE9A317742416008B0573 /* extra */,
+				DAABE9A617742416008B0573 /* FMDatabase.h */,
+				DAABE9A717742416008B0573 /* FMDatabase.m */,
+				DAABE9A817742416008B0573 /* FMDatabaseAdditions.h */,
+				DAABE9A917742416008B0573 /* FMDatabaseAdditions.m */,
+				DAABE9AA17742416008B0573 /* FMDatabasePool.h */,
+				DAABE9AB17742416008B0573 /* FMDatabasePool.m */,
+				DAABE9AC17742416008B0573 /* FMDatabaseQueue.h */,
+				DAABE9AD17742416008B0573 /* FMDatabaseQueue.m */,
+				DAABE9AE17742416008B0573 /* fmdb.m */,
+				DAABE9AF17742416008B0573 /* FMResultSet.h */,
+				DAABE9B017742416008B0573 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		DAABE9A317742416008B0573 /* extra */ = {
+			isa = PBXGroup;
+			children = (
+				DAABE9A417742416008B0573 /* FMDatabase+InMemoryOnDiskIO.h */,
+				DAABE9A517742416008B0573 /* FMDatabase+InMemoryOnDiskIO.m */,
+			);
+			path = extra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +363,9 @@
 				DAABE97E17705B9E008B0573 /* 4.jpeg in Resources */,
 				DAABE97F17705B9E008B0573 /* 5.jpeg in Resources */,
 				DAABE98B1771BBFF008B0573 /* 1.png in Resources */,
+				DA1E3157177812EC0019868D /* bg.png in Resources */,
+				DA1E3158177812EC0019868D /* del.png in Resources */,
+				DA1E3159177812EC0019868D /* done.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +385,20 @@
 				DAABE98717706773008B0573 /* QBPopupMenu.m in Sources */,
 				DAABE98817706773008B0573 /* QBPopupMenuItem.m in Sources */,
 				DAABE98917706773008B0573 /* QBPopupMenuOverlayView.m in Sources */,
+				DAABE99417741FAB008B0573 /* MyImagePickerMutilSelector.m in Sources */,
+				DAABE99517741FAB008B0573 /* PickerView.m in Sources */,
+				DAABE99617741FAB008B0573 /* ImageHandle.m in Sources */,
+				DAABE99717741FAB008B0573 /* ImageCell.m in Sources */,
+				DAABE99A17741FBC008B0573 /* PhotoList.m in Sources */,
+				DAABE99D1774220E008B0573 /* PeopleList.m in Sources */,
+				DAABE9B117742416008B0573 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
+				DAABE9B217742416008B0573 /* FMDatabase.m in Sources */,
+				DAABE9B317742416008B0573 /* FMDatabaseAdditions.m in Sources */,
+				DAABE9B417742416008B0573 /* FMDatabasePool.m in Sources */,
+				DAABE9B517742416008B0573 /* FMDatabaseQueue.m in Sources */,
+				DAABE9B617742416008B0573 /* fmdb.m in Sources */,
+				DAABE9B717742416008B0573 /* FMResultSet.m in Sources */,
+				DAABE9BA17742452008B0573 /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

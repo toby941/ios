@@ -27,6 +27,15 @@
     self.tabBarController.viewControllers = @[viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
   //  self.window.rootViewController = viewController1;
+    for(UIViewController *tab in  self.tabBarController.viewControllers)
+        
+    {
+        [tab.tabBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                [UIFont fontWithName:@"Helvetica" size:40.0], UITextAttributeFont, nil]
+                                      forState:UIControlStateNormal];
+    }
+    
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

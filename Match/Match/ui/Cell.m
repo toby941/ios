@@ -88,7 +88,7 @@
         [ft setTitle:[NSString stringWithFormat: @"%d", p.ft] forState:UIControlStateNormal];ft.tag=6;
         [pf setTitle:[NSString stringWithFormat: @"%d", p.pf]forState:UIControlStateNormal];pf.tag=7;
     }
-     [self updatePts];
+    [self updatePts];
 }
 
 - (IBAction)showPopupMenu:(id)sender {
@@ -133,27 +133,27 @@
             break;
         case 2:
             p.threepm=value;
-             cuentPerson.threepm=cuentPerson.threepm+value;
+            cuentPerson.threepm=cuentPerson.threepm+value;
             break;
         case 3:
             p.blk=value;
-             cuentPerson.blk=cuentPerson.blk+value;
+            cuentPerson.blk=cuentPerson.blk+value;
             break;
         case 4:
             p.ast=value;
-             cuentPerson.ast=cuentPerson.ast+value;
+            cuentPerson.ast=cuentPerson.ast+value;
             break;
         case 5:
             p.st=value;
-             cuentPerson.st=cuentPerson.st+value;
+            cuentPerson.st=cuentPerson.st+value;
             break;
         case 6:
             p.ft=value;
-             cuentPerson.ft=cuentPerson.ft+value;
+            cuentPerson.ft=cuentPerson.ft+value;
             break;
         case 7:
             p.pf=value;
-             cuentPerson.pf=cuentPerson.pf+value;
+            cuentPerson.pf=cuentPerson.pf+value;
             break;
         default:
             break;
@@ -165,39 +165,39 @@
 -(void) updateByAnotherPerson:(Person*)p{
     if(isManinCell){
         UIButton *button =nil;
-    NSInteger updateValue=nil;
-    if(p.fg!=0){
-        button=fg;
-        updateValue=p.fg;
-    }else if (p.threepm!=0){
-        button=threepm;
-        updateValue=p.threepm;
-    }else if (p.blk!=0){
-        button=blk;
-        updateValue=p.blk;
-    }else if (p.ast!=0){
-        button=ast;
-        updateValue=p.ast;
-    }else if (p.st!=0){
-        button=st;
-        updateValue=p.st;
-    }else if (p.ft!=0){
-        button=ft;
-        updateValue=p.ft;
-    }else if (p.pf!=0){
-        button=pf;
-        updateValue=p.pf;
+        NSInteger updateValue=nil;
+        if(p.fg!=0){
+            button=fg;
+            updateValue=p.fg;
+        }else if (p.threepm!=0){
+            button=threepm;
+            updateValue=p.threepm;
+        }else if (p.blk!=0){
+            button=blk;
+            updateValue=p.blk;
+        }else if (p.ast!=0){
+            button=ast;
+            updateValue=p.ast;
+        }else if (p.st!=0){
+            button=st;
+            updateValue=p.st;
+        }else if (p.ft!=0){
+            button=ft;
+            updateValue=p.ft;
+        }else if (p.pf!=0){
+            button=pf;
+            updateValue=p.pf;
+        }
+        NSString* value = button.currentTitle;
+        NSInteger point= [value intValue ];
+        point=point+updateValue;
+        if (point<0) {
+            point=0;
+        }
+        [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
+        [self updatePts];
     }
-    NSString* value = button.currentTitle;
-    NSInteger point= [value intValue ];
-    point=point+updateValue;
-    if (point<0) {
-        point=0;
-    }
-    [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
-    [self updatePts];
-    }
-
+    
 }
 
 
@@ -208,18 +208,34 @@
     NSInteger point= [value intValue ];
     if(point>0){
         point=point-1;
-  
-    [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
-    [self updatePts];
-    Person* p= [self makePerson:button.tag targetValue:-1];
-    if(!isManinCell&&[_delegate respondsToSelector:@selector(callChangeValue:)]){
-        [_delegate callChangeValue:p];
+        
+        [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
+        [self updatePts];
+        Person* p= [self makePerson:button.tag targetValue:-1];
+        if(!isManinCell&&[_delegate respondsToSelector:@selector(callChangeValue:)]){
+            [_delegate callChangeValue:p];
+        }
     }
-      }
     
 }
 
 -(void)setCustomIcon:(NSString*)path{
-    [icon setImage:[UIImage imageNamed:path]];
+    
+    if(self.p.picImage!=nil){
+        [icon setImage:_p.picImage];
+        
+    }else{
+        [icon setImage:[UIImage imageNamed:path]];
+        
+        if(isManinCell){
+             
+        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 55, 55)];
+        label.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+        label.text=_teamName;
+        [icon addSubview:label];
+    }
+
+    }
+    
 }
 @end
