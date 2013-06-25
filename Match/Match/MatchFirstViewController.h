@@ -19,6 +19,7 @@
     UIView *headView;
     UIButton *clearButton;
     UIButton *clearTableViewButton;
+     UIButton *saveButton;
     UIButton *selectPersonButton;
 }
 @property (nonatomic, assign)id <MatchFirstViewController> delegate;

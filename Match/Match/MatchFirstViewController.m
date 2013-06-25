@@ -14,8 +14,8 @@
 
 
 @interface MatchFirstViewController ()
-#define TABLEVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+44, self.view.bounds.size.width,  self.view.bounds.size.height-100)
-#define HEADVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width,  44)
+#define TABLEVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width,  self.view.bounds.size.height-90)
+#define HEADVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+ self.view.bounds.size.height-90, self.view.bounds.size.width,  44)
 @end
 
 @implementation MatchFirstViewController
@@ -56,19 +56,127 @@
     [clearTableViewButton setTitle:@"清除球队" forState:UIControlStateNormal];
     
     
+    saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [saveButton setFrame:CGRectMake(self.view.bounds.origin.x+155, self.view.bounds.origin.y, 40,  40)];
+    [saveButton addTarget:self action:@selector(saveResult2:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+    
     
     [headView addSubview:clearButton];
     [headView addSubview:selectPersonButton];
     [headView addSubview:clearTableViewButton];
+    [headView addSubview:saveButton];
     [self.view addSubview:headView];
     [self initTableView];
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
+-(IBAction) saveResult:(id)sender{
+    //支持retian高分辨率
+    
+    UIGraphicsBeginImageContextWithOptions(tblView.frame.size, YES, 0.0);
+    
+    float curH = tblView.contentSize.height;
+    
+    UIImageView *allView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, curH)];
+    
+    for (float f = 0; f < curH; f+=400)
+    {
+        tblView.contentOffset = CGPointMake(0, f);
+        [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImageView *imgV = [[UIImageView alloc]initWithImage:UIGraphicsGetImageFromCurrentImageContext()];
+        
+        imgV.frame = CGRectMake(0, f, 320, 400);
+        [allView addSubview:imgV];
+        [imgV release];
+    }
+    
+    UIGraphicsEndImageContext();
+    
+    //保存图片
+    UIGraphicsBeginImageContextWithOptions(allView.frame.size, YES, 0.0);
+    [allView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [allView release];
+    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"存储照片成功"
+                                                    message:@"您已将照片存储于图片库中，打开照片程序即可查看。"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
+
+
+-(IBAction) saveResult2:(id)sender{
+    //支持retian高分辨率
+    
+    UIGraphicsBeginImageContextWithOptions(tblView.frame.size, YES, 0.0);
+    
+    float curH = tblView.contentSize.height;
+    
+    UIImageView *allView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, curH)];
+    
+    int f=0;
+    tblView.contentOffset = CGPointMake(0, f);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImageView *imgV = [[UIImageView alloc]initWithImage:UIGraphicsGetImageFromCurrentImageContext()];
+    
+    imgV.frame = CGRectMake(0, f, 320, 420);
+    [allView addSubview:imgV];
+    [imgV release];
+    
+    f=f+420;
+    tblView.contentOffset = CGPointMake(0, f);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    imgV = [[UIImageView alloc]initWithImage:UIGraphicsGetImageFromCurrentImageContext()];
+    
+    imgV.frame = CGRectMake(0, f, 320, 420);
+    [allView addSubview:imgV];
+    [imgV release];
+    
+    
+    f=f+400;
+    tblView.contentOffset = CGPointMake(0, f);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    imgV = [[UIImageView alloc]initWithImage:UIGraphicsGetImageFromCurrentImageContext()];
+    
+    imgV.frame = CGRectMake(0, f, 320, 400);
+    [allView addSubview:imgV];
+    [imgV release];
+    
+    
+    UIGraphicsEndImageContext();
+    
+    //保存图片
+    UIGraphicsBeginImageContextWithOptions(allView.frame.size, YES, 0.0);
+    [allView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [allView release];
+    UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"存储照片成功"
+                                                    message:@"您已将照片存储于图片库中，打开照片程序即可查看。"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
+
+
 -(IBAction) clearTeam:(id)sender{
     _summaryPerson=nil;
     _personArray=nil;
+    self.title=@"0";
     [tblView reloadData];
 }
 
@@ -102,6 +210,7 @@
     for (Person* p in _personArray) {
         [p clear];
     }
+    self.title=@"0";
     [tblView reloadData];
 }
 

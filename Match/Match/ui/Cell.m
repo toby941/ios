@@ -92,9 +92,13 @@
 }
 
 - (IBAction)showPopupMenu:(id)sender {
-    UIButton *button = (UIButton *)sender;
+    
+    if(!isManinCell){
+        UIButton *button = (UIButton *)sender;
     self.currentButton=button;
     [self.popupMenu showInView:self atPoint:CGPointMake(button.center.x, button.frame.origin.y)];
+    }
+
 }
 
 
@@ -109,17 +113,18 @@
 
 - (void)add:(id)sender
 {
-    UIButton *button = self.currentButton;
-    NSString* value = [button currentTitle];
-    NSInteger point= [value intValue ]+1;
-    
-    [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
-    [self updatePts];
-    Person* p= [self makePerson:button.tag targetValue:1];
-    if(!isManinCell&&[_delegate respondsToSelector:@selector(callChangeValue:)]){
-        [_delegate callChangeValue:p];
+    if(!isManinCell){
+        UIButton *button = self.currentButton;
+        NSString* value = [button currentTitle];
+        NSInteger point= [value intValue ]+1;
+        
+        [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
+        [self updatePts];
+        Person* p= [self makePerson:button.tag targetValue:1];
+        if(!isManinCell&&[_delegate respondsToSelector:@selector(callChangeValue:)]){
+            [_delegate callChangeValue:p];
+        }
     }
-    
 }
 
 -(Person*)makePerson:(NSInteger)tagValue targetValue:(int)value{
@@ -203,20 +208,21 @@
 
 - (void)reduce:(id)sender
 {
-    UIButton *button = self.currentButton;
-    NSString* value = button.currentTitle;
-    NSInteger point= [value intValue ];
-    if(point>0){
-        point=point-1;
-        
-        [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
-        [self updatePts];
-        Person* p= [self makePerson:button.tag targetValue:-1];
-        if(!isManinCell&&[_delegate respondsToSelector:@selector(callChangeValue:)]){
-            [_delegate callChangeValue:p];
+    if(!isManinCell){
+        UIButton *button = self.currentButton;
+        NSString* value = button.currentTitle;
+        NSInteger point= [value intValue ];
+        if(point>0){
+            point=point-1;
+            
+            [button setTitle:[NSString stringWithFormat: @"%d", point] forState:UIControlStateNormal];
+            [self updatePts];
+            Person* p= [self makePerson:button.tag targetValue:-1];
+            if(!isManinCell&&[_delegate respondsToSelector:@selector(callChangeValue:)]){
+                [_delegate callChangeValue:p];
+            }
         }
     }
-    
 }
 
 -(void)setCustomIcon:(NSString*)path{
@@ -228,13 +234,13 @@
         [icon setImage:[UIImage imageNamed:path]];
         
         if(isManinCell){
-             
-        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 55, 55)];
-        label.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
-        label.text=_teamName;
-        [icon addSubview:label];
-    }
-
+            
+            UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 55, 55)];
+            label.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+            label.text=_teamName;
+            [icon addSubview:label];
+        }
+        
     }
     
 }
