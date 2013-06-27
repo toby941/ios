@@ -26,7 +26,19 @@
     UIButton* threepm;//三分球
     UIButton* fg;//投篮
     UIButton* st;//抢断
+    
     UILabel* pts;//总得分
+    
+    UILabel* lpts;//总得分
+    UILabel* lblk;//篮板球
+    UILabel* last;//助攻
+    UILabel* lft;//罚球次数
+    UILabel* lpf;//犯规次数
+    UILabel* lthreepm;//三分球
+    UILabel* lfg;//投篮
+    UILabel* lst;//抢断
+    
+    
     UIImageView* icon;
 } 
 
@@ -39,6 +51,17 @@
 @property (nonatomic, retain) id <callChangeDelegate> delegate;
 
 @property (nonatomic, retain) IBOutlet UILabel* pts;//总得分
+
+@property (nonatomic, retain) IBOutlet UILabel* lpts;//总得分
+@property (nonatomic, retain) IBOutlet UILabel* lblk;//篮板球
+@property (nonatomic, retain) IBOutlet UILabel* last;//助攻
+@property (nonatomic, retain) IBOutlet UILabel* lft;//罚球次数
+@property (nonatomic, retain) IBOutlet UILabel* lpf;//犯规次数
+@property (nonatomic, retain) IBOutlet UILabel* lthreepm;//三分球
+@property (nonatomic, retain) IBOutlet UILabel* lfg;//投篮
+@property (nonatomic, retain) IBOutlet UILabel* lst;//抢断
+
+
 @property (nonatomic, retain) IBOutlet UIButton* blk;//篮板球
 @property (nonatomic, retain) IBOutlet UIButton* ast;//助攻
 @property (nonatomic, retain) IBOutlet UIButton* ft;//罚球次数

@@ -1,0 +1,32 @@
+/* 
+  Localized.strings
+  Match
+
+  Created by toby on 13-6-25.
+  Copyright (c) 2013年 toby. All rights reserved.
+*/
+choose="select";
+clearteam="C-team";
+save="save";
+clearpoint="C-score";
+sum="Total";
+person="Each Person";
+selectpan="current selected %i player(max:10)";
+ok="ok";
+cancel="cancel";
+clearpointBtn="clear";
+clearteamBtn="clean";
+selecttitle="To the team name from a loud bar";
+alerttitleteam="Confirm removal team?";
+alerttitlepoint="Confirm Scores C
+leared?";
+saveImgTitle="Store photos success";
+saveImg="You have photos stored in a picture library, open the Photos application to view.";
+lpts="PTS:";
+lblk="BLK";
+last="AST";
+lft="FT";
+lpf="PF";
+lthreepm="3FG";
+lfg="2FG";
+lst="ST";

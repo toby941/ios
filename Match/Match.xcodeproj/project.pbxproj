@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0D52FB1779964C00CC4549 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA0D52FA1779964C00CC4549 /* Cell.xib */; };
+		DA0D5301177C322300CC4549 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0D5300177C322300CC4549 /* icon.png */; };
+		DA0D5303177C323D00CC4549 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0D5302177C323D00CC4549 /* icon@2x.png */; };
+		DA0D5305177C324900CC4549 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA0D5304177C324900CC4549 /* icon@2x.png */; };
 		DA1E3157177812EC0019868D /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1E3154177812EC0019868D /* bg.png */; };
 		DA1E3158177812EC0019868D /* del.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1E3155177812EC0019868D /* del.png */; };
 		DA1E3159177812EC0019868D /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = DA1E3156177812EC0019868D /* done.png */; };
+		DA1E3161177963C20019868D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA1E3163177963C30019868D /* Localizable.strings */; };
 		DAA84E23176EF6CB001F0FD6 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA84E21176EF6CB001F0FD6 /* Cell.m */; };
-		DAA84E24176EF6CB001F0FD6 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DAA84E22176EF6CB001F0FD6 /* Cell.xib */; };
 		DAA84E2A176EF71F001F0FD6 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA84E29176EF71F001F0FD6 /* Person.m */; };
 		DAA9A2311769DD4D0059BD16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA9A2301769DD4D0059BD16 /* UIKit.framework */; };
 		DAA9A2331769DD4D0059BD16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA9A2321769DD4D0059BD16 /* Foundation.framework */; };
@@ -55,12 +59,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA0D52FA1779964C00CC4549 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		DA0D5300177C322300CC4549 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		DA0D5302177C323D00CC4549 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		DA0D5304177C324900CC4549 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		DA1E3154177812EC0019868D /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		DA1E3155177812EC0019868D /* del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = del.png; sourceTree = "<group>"; };
 		DA1E3156177812EC0019868D /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
+		DA1E3162177963C30019868D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA1E31641779644D0019868D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DA1E31651779644D0019868D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		DAA84E20176EF6CB001F0FD6 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		DAA84E21176EF6CB001F0FD6 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
-		DAA84E22176EF6CB001F0FD6 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		DAA84E28176EF71F001F0FD6 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Person.h; path = model/Person.h; sourceTree = "<group>"; };
 		DAA84E29176EF71F001F0FD6 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Person.m; path = model/Person.m; sourceTree = "<group>"; };
 		DAA9A22C1769DD4D0059BD16 /* Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Match.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,9 +154,9 @@
 		DAA84E1F176EF6CB001F0FD6 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				DA0D52FA1779964C00CC4549 /* Cell.xib */,
 				DAA84E20176EF6CB001F0FD6 /* Cell.h */,
 				DAA84E21176EF6CB001F0FD6 /* Cell.m */,
-				DAA84E22176EF6CB001F0FD6 /* Cell.xib */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -167,6 +177,9 @@
 		DAA9A2211769DD4D0059BD16 = {
 			isa = PBXGroup;
 			children = (
+				DA0D5304177C324900CC4549 /* icon@2x.png */,
+				DA0D5300177C322300CC4549 /* icon.png */,
+				DA1E3163177963C30019868D /* Localizable.strings */,
 				DAABE9A017742378008B0573 /* libsqlite3.0.dylib */,
 				DAA9A2361769DD4D0059BD16 /* Match */,
 				DAA9A22F1769DD4D0059BD16 /* Frameworks */,
@@ -232,6 +245,7 @@
 		DAABE97517705B9E008B0573 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				DA0D5302177C323D00CC4549 /* icon@2x.png */,
 				DA1E3154177812EC0019868D /* bg.png */,
 				DA1E3155177812EC0019868D /* del.png */,
 				DA1E3156177812EC0019868D /* done.png */,
@@ -332,6 +346,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = DAA9A2211769DD4D0059BD16;
 			productRefGroup = DAA9A22D1769DD4D0059BD16 /* Products */;
@@ -356,7 +371,6 @@
 				DAA9A24E1769DD4D0059BD16 /* first@2x.png in Resources */,
 				DAA9A2531769DD4D0059BD16 /* second.png in Resources */,
 				DAA9A2551769DD4D0059BD16 /* second@2x.png in Resources */,
-				DAA84E24176EF6CB001F0FD6 /* Cell.xib in Resources */,
 				DAABE97B17705B9E008B0573 /* 1.jpeg in Resources */,
 				DAABE97C17705B9E008B0573 /* 2.jpeg in Resources */,
 				DAABE97D17705B9E008B0573 /* 3.jpeg in Resources */,
@@ -366,6 +380,11 @@
 				DA1E3157177812EC0019868D /* bg.png in Resources */,
 				DA1E3158177812EC0019868D /* del.png in Resources */,
 				DA1E3159177812EC0019868D /* done.png in Resources */,
+				DA1E3161177963C20019868D /* Localizable.strings in Resources */,
+				DA0D52FB1779964C00CC4549 /* Cell.xib in Resources */,
+				DA0D5301177C322300CC4549 /* icon.png in Resources */,
+				DA0D5303177C323D00CC4549 /* icon@2x.png in Resources */,
+				DA0D5305177C324900CC4549 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,10 +424,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		DA1E3163177963C30019868D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA1E3162177963C30019868D /* en */,
+				DA1E31641779644D0019868D /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		DAA9A2391769DD4D0059BD16 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DAA9A23A1769DD4D0059BD16 /* en */,
+				DA1E31651779644D0019868D /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

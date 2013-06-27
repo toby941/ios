@@ -16,6 +16,8 @@
 @interface MatchFirstViewController ()
 #define TABLEVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width,  self.view.bounds.size.height-90)
 #define HEADVIEWFRAME      CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y+ self.view.bounds.size.height-90, self.view.bounds.size.width,  44)
+#define TAG_TEMA_CLEAR 1
+#define TAG_POINT_CLEAR 2
 @end
 
 @implementation MatchFirstViewController
@@ -38,29 +40,30 @@
     headView.backgroundColor=[UIColor redColor];
     
     selectPersonButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [selectPersonButton setFrame:CGRectMake(self.view.bounds.origin.x+10, self.view.bounds.origin.y, 65,  40)];
+    [selectPersonButton setFrame:CGRectMake(self.view.bounds.origin.x+6, self.view.bounds.origin.y, 65,  40)];
     [selectPersonButton addTarget:self action:@selector(pickMutilImage:) forControlEvents:UIControlEventTouchUpInside];
-    [selectPersonButton setTitle:@"选择球员" forState:UIControlStateNormal];
+    [selectPersonButton setTitle:NSLocalizedString(@"choose", @"choose")
+ forState:UIControlStateNormal];
     
     clearButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [clearButton setFrame:CGRectMake(self.view.bounds.origin.x+250, self.view.bounds.origin.y, 65,  40)];
-    [clearButton addTarget:self action:@selector(clearCell:) forControlEvents:UIControlEventTouchUpInside];
+    [clearButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    [clearButton setTitle:@"得分清零" forState:UIControlStateNormal];
+    [clearButton setTitle:NSLocalizedString(@"clearpoint", @"clearpoint") forState:UIControlStateNormal];
     
     
     clearTableViewButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [clearTableViewButton setFrame:CGRectMake(self.view.bounds.origin.x+85, self.view.bounds.origin.y, 65,  40)];
-    [clearTableViewButton addTarget:self action:@selector(clearTeam:) forControlEvents:UIControlEventTouchUpInside];
+    [clearTableViewButton setFrame:CGRectMake(self.view.bounds.origin.x+88, self.view.bounds.origin.y, 65,  40)];
+    [clearTableViewButton addTarget:self action:@selector(clearTeambuttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    [clearTableViewButton setTitle:@"清除球队" forState:UIControlStateNormal];
+    [clearTableViewButton setTitle:NSLocalizedString(@"clearteam", @"clearpoint") forState:UIControlStateNormal];
     
     
     saveButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [saveButton setFrame:CGRectMake(self.view.bounds.origin.x+155, self.view.bounds.origin.y, 40,  40)];
+    [saveButton setFrame:CGRectMake(self.view.bounds.origin.x+169, self.view.bounds.origin.y, 65,  40)];
     [saveButton addTarget:self action:@selector(saveResult2:) forControlEvents:UIControlEventTouchUpInside];
     
-    [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+    [saveButton setTitle:NSLocalizedString(@"save", @"save") forState:UIControlStateNormal];
     
     
     [headView addSubview:clearButton];
@@ -71,6 +74,57 @@
     [self initTableView];
     
 	// Do any additional setup after loading the view, typically from a nib.
+}
+-(IBAction) buttonTapped:(id) sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clearpoint", @"clearpoint")
+                                                    message:NSLocalizedString(@"alerttitlepoint", @"alerttitlepoint")
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"cancel", @"cancel")
+                                          otherButtonTitles:NSLocalizedString(@"clearpointBtn", @"clearpointBtn"), nil];
+    alert.tag=TAG_POINT_CLEAR;
+    [alert show];
+    [alert release];
+}
+
+-(IBAction) clearTeambuttonTapped:(id) sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"clearteam", @"clearteam")
+                                                    message:NSLocalizedString(@"alerttitleteam", @"alerttitleteam")
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"cancel", @"cancel")
+                                          otherButtonTitles:NSLocalizedString(@"clearteamBtn", @"clearteamBtn"), nil];
+    alert.tag=TAG_TEMA_CLEAR;
+    [alert show];
+    [alert release];
+}
+
+
+-(void)alertView:(UIAlertView*) alertView didDismissWithButtonIndex:(NSInteger) buttonIndex {
+    
+    if(buttonIndex != [alertView cancelButtonIndex]) {
+        if(alertView.tag==TAG_POINT_CLEAR){
+            [self clearCell];
+        }else{
+            [self clearTeam];
+        }
+        
+    }
+}
+
+-(void) clearTeam{
+    _summaryPerson=nil;
+    _personArray=nil;
+    self.title=@"0";
+    [tblView reloadData];
+}
+
+
+- (void)clearCell{
+    [_summaryPerson clear];
+    for (Person* p in _personArray) {
+        [p clear];
+    }
+    self.title=@"0";
+    [tblView reloadData];
 }
 
 -(IBAction) saveResult:(id)sender{
@@ -103,10 +157,10 @@
     
     [allView release];
     UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"存储照片成功"
-                                                    message:@"您已将照片存储于图片库中，打开照片程序即可查看。"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"saveImgTitle", @"saveImgTitle")
+                                                    message:NSLocalizedString(@"saveImg", @"saveImg")
                                                    delegate:self
-                                          cancelButtonTitle:@"OK"
+                                          cancelButtonTitle:NSLocalizedString(@"ok", @"ok")
                                           otherButtonTitles:nil];
     [alert show];
     [alert release];
@@ -162,23 +216,18 @@
     
     [allView release];
     UIImageWriteToSavedPhotosAlbum(img, nil, nil, nil);
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"存储照片成功"
-                                                    message:@"您已将照片存储于图片库中，打开照片程序即可查看。"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"saveImgTitle", @"saveImgTitle")
+                                                    message:NSLocalizedString(@"saveImg", @"saveImg")
                                                    delegate:self
-                                          cancelButtonTitle:@"OK"
+                                          cancelButtonTitle:NSLocalizedString(@"ok", @"ok")
                                           otherButtonTitles:nil];
     [alert show];
     [alert release];
+
 }
 
 
 
--(IBAction) clearTeam:(id)sender{
-    _summaryPerson=nil;
-    _personArray=nil;
-    self.title=@"0";
-    [tblView reloadData];
-}
 
 
 -(IBAction) pickMutilImage:(id)sender
@@ -205,14 +254,7 @@
 
 
 
-- (IBAction)clearCell:(id)sender{
-    [_summaryPerson clear];
-    for (Person* p in _personArray) {
-        [p clear];
-    }
-    self.title=@"0";
-    [tblView reloadData];
-}
+
 
 
 - (void)initTableView
@@ -262,9 +304,9 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if(section==0){
-        return @"总计";
+        return NSLocalizedString(@"sum", @"sum");
     }else{
-        return @"个人";
+        return NSLocalizedString(@"person", @"person");
     }
     
 }

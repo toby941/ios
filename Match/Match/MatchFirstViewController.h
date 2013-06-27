@@ -30,6 +30,5 @@
 @property (atomic,strong) Person* summaryPerson;
 @property (nonatomic, retain) QBPopupMenu *popupMenu;
 @property (strong,atomic) PeopleList *selectedList;
-- (IBAction)clearCell:(id)sender;
 
 @end

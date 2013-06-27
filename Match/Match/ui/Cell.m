@@ -22,6 +22,15 @@
 @synthesize  pts;
 @synthesize icon;
 @synthesize isManinCell;
+@synthesize lfg;
+@synthesize lpf;
+@synthesize lthreepm;
+@synthesize lst;
+@synthesize lft;
+@synthesize lblk;
+@synthesize last;
+@synthesize lpts;
+
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -51,6 +60,24 @@
     
     
     pts.text=@"0";
+    
+    
+    
+    lpts.text=NSLocalizedString(@"lpts",@"lpts");
+    
+   
+    lblk.text=NSLocalizedString(@"lblk",@"lblk");
+    last.text=NSLocalizedString(@"last",@"last");
+    lft.text=NSLocalizedString(@"lft",@"lft");
+    lpf.text=NSLocalizedString(@"lpf",@"lpf");
+    lthreepm.text=NSLocalizedString(@"lthreepm",@"lthreepm");
+    lfg.text=NSLocalizedString(@"lfg",@"lfg");
+    lst.text=NSLocalizedString(@"lst",@"lst");
+    
+
+    
+    
+    
     [fg setTitle:@"0" forState:UIControlStateNormal]; fg.tag=1;
     [threepm setTitle:@"0" forState:UIControlStateNormal];threepm.tag=2;
     [blk setTitle:@"0" forState:UIControlStateNormal];blk.tag=3;
@@ -58,6 +85,8 @@
     [st setTitle:@"0" forState:UIControlStateNormal];st.tag=5;
     [ft setTitle:@"0" forState:UIControlStateNormal];ft.tag=6;
     [pf setTitle:@"0" forState:UIControlStateNormal];pf.tag=7;
+    
+    
     
     
     
@@ -87,7 +116,11 @@
         [st setTitle:[NSString stringWithFormat: @"%d", p.st] forState:UIControlStateNormal];st.tag=5;
         [ft setTitle:[NSString stringWithFormat: @"%d", p.ft] forState:UIControlStateNormal];ft.tag=6;
         [pf setTitle:[NSString stringWithFormat: @"%d", p.pf]forState:UIControlStateNormal];pf.tag=7;
+        
+      
+       
     }
+    
     [self updatePts];
 }
 

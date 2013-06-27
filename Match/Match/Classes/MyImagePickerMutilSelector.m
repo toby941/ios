@@ -77,7 +77,7 @@
     [textlabel setFont:[UIFont systemFontOfSize:16.0f]];
     [textlabel setTextColor:[UIColor whiteColor]];
     
-    textlabel.text=[NSString stringWithFormat:@"当前选中%i名球员(最多10名)",pics.count];
+    textlabel.text=[NSString stringWithFormat:NSLocalizedString(@"selectpan", @"selectpan"),pics.count];
     //[textlabel setText:@"当前选中0张(最多10张)"];
     [selectedPan addSubview:textlabel];
     [textlabel release];
@@ -134,7 +134,6 @@
         
         photoList.pics=pics;
         photoList.name=inputText.text;
-        NSLog(@" photoList.name:%@", photoList.name);
         photoList.createTime=[NSDate date];
         
         [delegate performSelector:@selector(imagePickerMutilSelectorDidGetImages:) withObject:photoList];
@@ -150,13 +149,13 @@
     
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     alertView.delegate = self;
-    alertView.title=@"请给个好记的队名吧";
+    alertView.title=NSLocalizedString(@"selecttitle", @"selecttitle");
     if(photoList!=nil){
         UITextField *inputText= [alertView textFieldAtIndex:0];
         inputText.text=photoList.name;
     }
-    [alertView addButtonWithTitle:@"取消"];
-    [alertView addButtonWithTitle:@"确认"];
+    [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
+    [alertView addButtonWithTitle:NSLocalizedString(@"ok", @"ok")];
     [alertView show];
     
     NSLog(@"%@",[alertView textFieldAtIndex:0].text);
@@ -219,7 +218,7 @@
 
 -(void)updateTableView
 {
-    textlabel.text=[NSString stringWithFormat:@"当前选中%i名球员(最多10名)",pics.count];
+    textlabel.text=[NSString stringWithFormat:NSLocalizedString(@"selectpan", @"selectpan"),pics.count];
     
     [tbv reloadData];
     

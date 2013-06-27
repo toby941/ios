@@ -1,0 +1,33 @@
+/* 
+  Localized.strings
+  Match
+
+  Created by toby on 13-6-25.
+  Copyright (c) 2013年 toby. All rights reserved.
+*/
+choose="选择球员";
+clearteam="清除球队";
+save="保存结果";
+clearpoint="比分清零";
+sum="总计";
+person="个人";
+selectpan="当前选中%i名球员(最多10名)";
+ok="确认";
+cancel="取消";
+clearpointBtn="清零";
+clearteamBtn="清除";
+selecttitle="给起个响亮的队名吧";
+alerttitleteam="确认清除球队?";
+alerttitlepoint="确认比分清零？";
+saveImgTitle="存储照片成功";
+saveImg="您已将照片存储于图片库中，打开照片程序即可查看。";
+
+
+lpts="得分：";
+lblk="篮板";
+last="助攻";
+lft="罚球";
+lpf="犯规";
+lthreepm="三分";
+lfg="两分";
+lst="抢断";
