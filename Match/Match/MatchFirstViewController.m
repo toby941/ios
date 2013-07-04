@@ -237,6 +237,10 @@
     MyImagePickerMutilSelector* imagePickerMutilSelector= [[MyImagePickerMutilSelector alloc] initWithPhotoList:_selectedList];//自动释放
     imagePickerMutilSelector.delegate=self;//设置代理
     
+   
+    imagePickerMutilSelector.teamTitle=_summaryPerson.name;
+    
+    
     UIImagePickerController* picker=[[UIImagePickerController alloc] init];
     picker.delegate=imagePickerMutilSelector;//将UIImagePicker的代理指向到imagePickerMutilSelector
     [picker setAllowsEditing:NO];
@@ -315,11 +319,15 @@
 {
     
     PeopleList* importList=peopleList;
-    Person *p= [[Person alloc]init];
-    p.name=importList.name;
-    _summaryPerson=p;
+    if(_summaryPerson==nil){
+        Person *p= [[Person alloc]init];
+        p.name=importList.name;
+        _summaryPerson=p;
+        self.title =importList.name;
+    }
+  
     
-    self.title =importList.name;
+    
     
     
     if(_personArray==nil){

@@ -25,7 +25,7 @@
     PhotoList* photoList;
     //id<MHImagePickerMutilSelectorDelegate>  delegate;
 }
-
+@property (nonatomic,retain) NSString* teamTitle;
 @property (nonatomic,retain)UIImagePickerController*    imagePicker;
 @property(nonatomic,retain)id<MyImagePickerMutilSelectorDelegate>   delegate;
 

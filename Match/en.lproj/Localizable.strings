@@ -6,9 +6,9 @@
   Copyright (c) 2013年 toby. All rights reserved.
 */
 choose="select";
-clearteam="C-team";
+clearteam="remove";
 save="save";
-clearpoint="C-score";
+clearpoint="clear";
 sum="Total";
 person="Each Person";
 selectpan="current selected %i player(max:10)";

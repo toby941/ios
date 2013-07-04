@@ -9,7 +9,7 @@
 #import "MatchAppDelegate.h"
 
 #import "MatchFirstViewController.h"
-
+#import "MobClick.h"
 #import "MatchSecondViewController.h"
 
 @implementation MatchAppDelegate
@@ -35,7 +35,7 @@
                                       forState:UIControlStateNormal];
     }
     
-    
+    [MobClick startWithAppkey:@"51cc069f56240ba37a008a0f"];
     [self.window makeKeyAndVisible];
     return YES;
 }

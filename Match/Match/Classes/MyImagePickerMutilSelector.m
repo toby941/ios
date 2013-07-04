@@ -150,9 +150,9 @@
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     alertView.delegate = self;
     alertView.title=NSLocalizedString(@"selecttitle", @"selecttitle");
-    if(photoList!=nil){
+    if(_teamTitle!=nil){
         UITextField *inputText= [alertView textFieldAtIndex:0];
-        inputText.text=photoList.name;
+        inputText.text=_teamTitle;
     }
     [alertView addButtonWithTitle:NSLocalizedString(@"cancel", @"cancel")];
     [alertView addButtonWithTitle:NSLocalizedString(@"ok", @"ok")];
