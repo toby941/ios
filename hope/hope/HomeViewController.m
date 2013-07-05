@@ -350,7 +350,6 @@
     NSLog(@"load more");
     if (![super loadMore])
         return NO;
-    NSArray* array=nil;
     NSURL* url=[[DataContext sharedInstance] getUrl:HOME_API];
     [[DataContext sharedInstance] fetchURL:url
                                    success:^(id items, BOOL finished){

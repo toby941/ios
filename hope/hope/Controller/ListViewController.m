@@ -37,7 +37,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.page=0;
+        self.page=1;
         self.path=HOME_API;
     }
     return self;
@@ -52,7 +52,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.page=0;
+    self.page=1;
     [self.tableView setBackgroundColor:[UIColor lightGrayColor]];
     
     
