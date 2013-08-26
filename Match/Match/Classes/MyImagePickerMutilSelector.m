@@ -54,18 +54,22 @@
 -(void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     
+    if ([viewController.view.subviews count]>0) {
+        
+    
     if(!isIPhone5){
         
         [[viewController.view.subviews objectAtIndex:0] setFrame:CGRectMake(0, 0, 320, 480-131)];
         
         selectedPan=[[UIView alloc] initWithFrame:CGRectMake(0, 480-131, 320, 131)];
     }else {
+        NSLog(@"subview count: %d",[viewController.view.subviews count]);
         [[viewController.view.subviews objectAtIndex:0] setFrame:CGRectMake(0, 0, 320, 568-131)];
         
         selectedPan=[[UIView alloc] initWithFrame:CGRectMake(0, 568-131, 320, 131)];
     }
     
-    
+    }
     
     UIImageView* imv=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 131)];
     [imv setImage:[UIImage imageNamed:@"bg"]];

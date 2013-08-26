@@ -15,6 +15,7 @@
 @protocol MatchFirstViewController;
 @interface MatchFirstViewController : UIViewController<MyImagePickerMutilSelectorDelegate,UITableViewDataSource, UITableViewDelegate,callChangeDelegate>
 {
+    
     UITableView *tblView;
     UIView *headView;
     UIButton *clearButton;

@@ -352,7 +352,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = toby;
 			};
-			buildConfigurationList = DAA9A2261769DD4D0059BD16 /* Build configuration list for PBXProject "match" */;
+			buildConfigurationList = DAA9A2261769DD4D0059BD16 /* Build configuration list for PBXProject "Match" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -567,7 +567,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DAA9A2261769DD4D0059BD16 /* Build configuration list for PBXProject "match" */ = {
+		DAA9A2261769DD4D0059BD16 /* Build configuration list for PBXProject "Match" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DAA9A2621769DD4D0059BD16 /* Debug */,
